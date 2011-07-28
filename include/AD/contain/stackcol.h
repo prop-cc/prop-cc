@@ -106,7 +106,7 @@ public:
 
   virtual Bool remove( const T& e)
   {
-    should_not_implement("remove");
+    SequenceableCollection<T>::should_not_implement("remove");
   }
 
   virtual void push( const T& e)

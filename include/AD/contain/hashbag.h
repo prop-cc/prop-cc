@@ -41,8 +41,8 @@ class HashBag : public Bag<T>
   //////////////////////////////////////////////////////////////////////
 
 public:
-  typedef Bag<T>         Super;
-  typedef Super::Element Element;
+  typedef Bag<T>                  Super;
+  typedef typename Super::Element Element;
 
   //////////////////////////////////////////////////////////////////////
   // Constructors and destructor
@@ -108,7 +108,7 @@ public:
   inline void clear()
   {
     bag.clear();
-    tally = 0;
+    Bag<T>::tally = 0;
   }
 
   Ix insert( const T& e, int count);
@@ -170,7 +170,7 @@ Ix HashBag<T, H>::insert( const T& e, int n)
     bag.value(total) += n;
   else
     total = bag.insert(e,n);
-  tally += n;
+  Bag<T>::tally += n;
   return total;
 }
 
@@ -187,11 +187,11 @@ Bool HashBag<T, H>::remove( const T& e, int n)
     if (bag.value(total) > n)
     {
       bag.value(total) -= n;
-      tally -= n;
+      Bag<T>::tally -= n;
     }
     else
     {
-      tally -= bag.value(total);
+      Bag<T>::tally -= bag.value(total);
       bag.remove(e);
     }
     return true;

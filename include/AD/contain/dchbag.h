@@ -49,8 +49,8 @@ public:
   // Everything else is inherited from HashBag
   //////////////////////////////////////////////////////////////////
 
-  typedef HashBag<T, DCHashTable <T,int> > Super;
-  typedef Super::Element                   Element;
+  typedef HashBag<T, DCHashTable <T,int> >          Super;
+  typedef typename Super::Element                   Element;
 };
 
 #endif

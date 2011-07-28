@@ -45,8 +45,8 @@ class HashSet : public Set<T>
   ///////////////////////////////////////////////////////////////////////
 
 public:
-  typedef Set<T>         Super;
-  typedef Super::Element Element;
+  typedef Set<T>                  Super;
+  typedef typename Super::Element Element;
 
   ///////////////////////////////////////////////////////////////////////
   //  Constructors and destructor

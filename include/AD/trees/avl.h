@@ -37,6 +37,9 @@
 //  Class |AVLTree|
 //////////////////////////////////////////////////////////////////////////////
 
+BinaryNode * avl_balance_right(BinaryNode * T, Bool&);
+BinaryNode * avl_balance_left(BinaryNode * T, Bool&);
+
 template <class K, class V>
 class AVLTree : public BinaryTree<K,V>
 {

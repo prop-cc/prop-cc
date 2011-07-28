@@ -42,8 +42,8 @@ protected:
   //////////////////////////////////////////////////////////////////////
 
 public:
-  typedef Collection<T>  Super;
-  typedef Super::Element Element;
+  typedef Collection<T>           Super;
+  typedef typename Super::Element Element;
 
   //////////////////////////////////////////////////////////////////////
   // Constructors and destructor
@@ -78,7 +78,7 @@ public:
   }
   inline virtual Bool is_full()   const
   {
-    return tally == capacity();
+    return tally == Collection<T>::capacity();
   }
   // virtual int capacity() const;  // inherited
   // virtual Bool contains(const T& e) const; // inherited

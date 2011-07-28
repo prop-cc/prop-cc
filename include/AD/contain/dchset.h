@@ -49,8 +49,8 @@ public:
   // Everything else is inherited from HashSet
   //////////////////////////////////////////////////////////////////
 
-  typedef HashSet<T, DCHashTable <T,int> > Super;
-  typedef Super::Element                   Element;
+  typedef HashSet<T, DCHashTable <T,int> >          Super;
+  typedef typename Super::Element                   Element;
 };
 
 #endif

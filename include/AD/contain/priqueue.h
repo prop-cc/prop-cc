@@ -88,7 +88,7 @@ public:
 
   inline Bool is_full() const
   {
-    return elemCount == capacity();
+    return elemCount == A::capacity();
   }
 
   inline const T& min() const

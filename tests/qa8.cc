@@ -25,13 +25,13 @@ int main(int argc, char * argv[])
 {  CharSet C;
    DCHBag<char *> bag;
    DCHSet<char *> set;
-   DCHMap<char *,char *> M;
+   DCHMap<const char *,const char *> M;
    FixStack<int,100> S;
-   VarStack<char *> s1, s2;
+   VarStack<const char *> s1, s2;
    Seq<char> text;
    PriQueue<int, Array<int> > pq(256);
-   LinkedList<char *> list;
-   VarArray<char *> array(0,3);
+   LinkedList<const char *> list;
+   VarArray<const char *> array(0,3);
 
    C.clear();
    C += 'a';
@@ -68,7 +68,7 @@ int main(int argc, char * argv[])
 
    assert(list.length() == 3);
 
-   for (LinkedListIter<char *> j = list; j; j++)
+   for (LinkedListIter<const char *> j = list; j; j++)
       printf("Name = %s\n", j()); 
 
    array[0] = "Eva";

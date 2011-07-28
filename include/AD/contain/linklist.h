@@ -114,8 +114,8 @@ template <class T>
 class LinkedListIter
 {
   friend class LinkedList<T>;
-  LinkedList<T>::Node * cursor;
-  LinkedListIter(LinkedList<T>::Node * c) : cursor(c)
+  typename LinkedList<T>::Node * cursor;
+  LinkedListIter(typename LinkedList<T>::Node * c) : cursor(c)
   {}
 
 public:
@@ -136,7 +136,7 @@ public:
     cursor = i.cursor;
   }
 
-  operator LinkedList<T>::Node * () const
+  operator typename LinkedList<T>::Node * () const
   {
     return cursor;
   }

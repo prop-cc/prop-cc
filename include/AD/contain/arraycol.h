@@ -54,7 +54,7 @@ class ArrayCollection : public SequenceableCollection<T>
 
 public:
   typedef SequenceableCollection<T> Super;
-  typedef Super::Element            Element;
+  typedef typename Super::Element   Element;
 
   //////////////////////////////////////////////////////////////
   //  Constructor and destructor
@@ -104,7 +104,7 @@ public:
 
   void clear ()
   {
-    should_not_implement("clear");
+    SequenceableCollection<T>::should_not_implement("clear");
   }
   inline const T& operator [] (int i) const
   {
@@ -116,18 +116,18 @@ public:
   }
   Ix   insert (const T&)
   {
-    should_not_implement("insert");
+    SequenceableCollection<T>::should_not_implement("insert");
     return 0;
   }
   Bool remove
     (const T&)
   {
-    should_not_implement("remove");
+    SequenceableCollection<T>::should_not_implement("remove");
     return false;
   }
   Bool del    (Ix)
   {
-    should_not_implement("del");
+    SequenceableCollection<T>::should_not_implement("del");
     return false;
   }
 

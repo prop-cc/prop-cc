@@ -22,7 +22,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-SUBDIRS = include lib-src prop-src bin demos
+SUBDIRS = include lib-src prop-src bin demos tests
 EXTRA_DIST = VisualStudio2010
 
 dist_noinst_SCRIPTS = propwrap

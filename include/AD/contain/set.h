@@ -42,8 +42,8 @@ public:
   //  Inherit types
   ///////////////////////////////////////////////////////////////////////
 
-  typedef Collection<T>  Super;
-  typedef Super::Element Element;
+  typedef Collection<T>           Super;
+  typedef typename Super::Element Element;
 
   ///////////////////////////////////////////////////////////////////////
   //  Constructors and destructor

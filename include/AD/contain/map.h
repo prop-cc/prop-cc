@@ -132,7 +132,7 @@ public:
 
   // hack to get SUN C++ working
   inline virtual Element& operator () (Ix i)
-  { /* should_not_implement("Map::operator ()"); */
+  { Collection< K >::should_not_implement("Map::operator ()");
     return *(Element*)(&key(i));
   }
 };

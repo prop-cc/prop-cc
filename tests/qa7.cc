@@ -10,7 +10,10 @@
 #include <AD/numeric/z.h>
 
 int main(int argc, char * argv[])
-{  Z<9> a = 0, b = 1, c = 0;
+{
+   using namespace std;
+
+   Z<9> a = 0, b = 1, c = 0;
 
    assert(sizeof(a) == 4); 
    assert(a != b && a == c);

@@ -35,8 +35,8 @@ public:
   //  Inherit types
   //////////////////////////////////////////////////////////////
 
-  typedef Collection<T>  Super;
-  typedef Super::Element Element;
+  typedef Collection<T>           Super;
+  typedef typename Super::Element Element;
 
   //////////////////////////////////////////////////////////////
   //  Selectors
@@ -50,7 +50,7 @@ public:
 
   inline virtual int length() const
   {
-    return size();
+    return Collection<T>::size();
   } // pseudonym for size()
   virtual const T& operator [] (int i) const = 0;     // indexing operation
   virtual       T& operator [] (int i)       = 0;     // indexing operation

@@ -105,6 +105,7 @@ AC_CONFIG_FILES([
 	prop-src/Makefile
 	bin/Makefile
 	demos/Makefile
+	tests/Makefile
 ])
 AC_OUTPUT()
 
