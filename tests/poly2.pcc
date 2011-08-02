@@ -39,7 +39,9 @@ instantiate extern datatype LIST<int>, LIST< EXP >, LIST< STMT >, EXP, STMT;
 instantiate datatype        LIST<int>, LIST< EXP >, LIST< STMT >, EXP, STMT;
 
 int main()
-{  
+{
+   using namespace std;
+
    EXP  e1 = add(var("x"),num(1));
    EXP  e2 = sub(var("y"),num(2));
    STMT s1 = if_stmt (

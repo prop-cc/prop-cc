@@ -9,9 +9,9 @@
 //  Define some list types.
 //  I'm lazy so I just let the system to generate the printing methods.
 //////////////////////////////////////////////////////////////////////////////
-datatype LIST1 :: printable = #[] | #[ char * ... LIST1 ]
-and      LIST2 :: printable = #() | #( char * ... LIST2 )
-and      LIST3 :: printable = #{} | #{ char * ... LIST3 }
+datatype LIST1 :: printable = #[] | #[ const char * ... LIST1 ]
+and      LIST2 :: printable = #() | #( const char * ... LIST2 )
+and      LIST3 :: printable = #{} | #{ const char * ... LIST3 }
 ;
 
 instantiate datatype LIST1, LIST2, LIST3;
@@ -20,7 +20,9 @@ instantiate datatype LIST1, LIST2, LIST3;
 //  Try the new list constructor in expressions.
 //////////////////////////////////////////////////////////////////////////////
 int main()
-{ 
+{
+ using namespace std;
+ 
  { LIST1 fruits  = #["apple", "orange", "pear"];
    LIST1 scums   = #["marketing", "lawyers", "Republicans"];
    LIST1 animals = #["weasels", "skunks" ... scums]; 

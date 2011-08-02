@@ -18,6 +18,8 @@ lexeme digits    = /[0-9]+/
 
 int get_token(const char * s) 
 {
+   using namespace std;
+
    match (s)
    {  case /if/ /* this is a comment, not a regexp */: 
                               cout << "[if]" << flush;       return 1;
@@ -37,7 +39,10 @@ int get_token(const char * s)
 }
 
 int main() 
-{  const char * tokens[] =
+{
+   using namespace std;
+
+   const char * tokens[] =
       { "if", "then", "else", "for", "do", "while", "continue", "break",
         "if0", "the", "exit", "exity", "quit", "0elSe", "\"foo\"",
         "'bar\\''", "+1.98e-20", "+31415926", ".3141596e+1",

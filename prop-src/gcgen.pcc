@@ -48,6 +48,7 @@ void DatatypeClass::generate_gc_implementation( CodeGen& C, Tys tys, DefKind k)
     return;
   }
 
+  if (tys != #[]) C.pr( "%^template <>");
   C.pr( "%^void %s%P::trace(GC * gc__)" "%^{%+", class_name, tys);
 
   // Invoke base class tracing methods

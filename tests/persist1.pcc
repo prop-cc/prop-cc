@@ -77,7 +77,9 @@ Bool equal(EXP a, EXP b)
 //  The main program just writes out an expression; then read it back.
 //////////////////////////////////////////////////////////////////////////////
 int main()
-{  
+{
+   using namespace std;
+
    // Create an expression with sharing
    EXP e1 = add(num(1), var("x"));
    EXP e2 = mul(e1,e1);

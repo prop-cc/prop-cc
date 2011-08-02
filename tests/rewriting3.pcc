@@ -29,10 +29,10 @@ and      Exp     = integer ( int )                 // integers
 		 | om_exp
 
 and      BinOp   = add | sub | mul | divide | mod  // binary operators
-                 | logical_and | logical_or     
+                 | l_and | l_or     
                  | eq  | ge | le | lt | gt | ne
 
-and      UnaryOp = uminus | logical_not            // unary operators
+and      UnaryOp = uminus | l_not            // unary operators
 
 and      Stmt    = assign_stmt ( Id, Exp )                // assignments
                  | while_stmt  ( Exp, Stmt )              // while statements
@@ -92,8 +92,8 @@ and printable
   | mul            => "*"
   | divide         => "/"
   | mod            => "mod"
-  | logical_and    => "and"
-  | logical_or     => "or"
+  | l_and    => "and"
+  | l_or     => "or"
   | eq             => "="
   | ne             => "<>"
   | gt             => ">"
@@ -101,7 +101,7 @@ and printable
   | ge             => ">="
   | le             => "<="
   | uminus         => "-"
-  | logical_not    => "not"
+  | l_not    => "not"
   | assign_stmt    => _ ":=" _ ";"
   | while_stmt     => "while" _ "do" { _ } "end while;"
   | if_stmt        => "if" _ " then" { _ } "else" { _ } "endif;"
@@ -146,7 +146,7 @@ rewrite class Simplify
    )
 {
    // Method to print an error message 
-   void error(const char message[]) { cerr << message << '\n'; }
+   void error(const char message[]) { std::cerr << message << '\n'; }
 public:
    Simplify() {}
 };
@@ -195,9 +195,9 @@ rewrite Simplify
 |  binop(le,  real x,    real y):       rewrite(boolean((BOOL)(x <= y)));
 
 // Constant folding rules for boolean operators
-|  binop(logical_and, boolean x, boolean y):  rewrite(boolean((BOOL)(x && y)));
-|  binop(logical_or,  boolean x, boolean y):  rewrite(boolean((BOOL)(x || y)));
-|  unaryop(logical_not, boolean x):           rewrite(boolean((BOOL)(! x)));
+|  binop(l_and, boolean x, boolean y):  rewrite(boolean((BOOL)(x && y)));
+|  binop(l_or,  boolean x, boolean y):  rewrite(boolean((BOOL)(x || y)));
+|  unaryop(l_not, boolean x):           rewrite(boolean((BOOL)(! x)));
 
 // Simple algebraic laws for integers
 |  binop(add, integer 0, x        ):  rewrite(x);
@@ -226,14 +226,14 @@ rewrite Simplify
 // more ...
 
 // Simple boolean identities
-|  binop(logical_and, boolean False, _): rewrite(boolean(False));
-|  binop(logical_and, boolean True, b):  rewrite(b);
-|  binop(logical_and, _, boolean False): rewrite(boolean(False));
-|  binop(logical_and, b, boolean True):  rewrite(b);
-|  binop(logical_or,  boolean True, _):  rewrite(boolean(True));
-|  binop(logical_or,  boolean False, b): rewrite(b);
-|  binop(logical_or,  _, boolean True):  rewrite(boolean(True));
-|  binop(logical_or,  b, boolean False): rewrite(b);
+|  binop(l_and, boolean False, _): rewrite(boolean(False));
+|  binop(l_and, boolean True, b):  rewrite(b);
+|  binop(l_and, _, boolean False): rewrite(boolean(False));
+|  binop(l_and, b, boolean True):  rewrite(b);
+|  binop(l_or,  boolean True, _):  rewrite(boolean(True));
+|  binop(l_or,  boolean False, b): rewrite(b);
+|  binop(l_or,  _, boolean True):  rewrite(boolean(True));
+|  binop(l_or,  b, boolean False): rewrite(b);
 // more ...
 
 // The following rules eliminate unreachable statements. 
@@ -249,7 +249,9 @@ rewrite Simplify
 //  We'll test it with a simple program.
 /////////////////////////////////////////////////////////////////////////////
 int main()
-{  
+{ 
+   using namespace std;
+ 
    // Instantiate a rewriting object.
    Simplify simplify;
 
@@ -279,7 +281,7 @@ int main()
                    while_stmt(binop(ne, integer(1), integer(1)), 
                               assign_stmt("y", 
                                  binop(add,var("y"),integer(1)))),
-                   print_stmt(unaryop(logical_not,boolean(False)))
+                   print_stmt(unaryop(l_not,boolean(False)))
                   ]
                 );
    cout << "Before:\n" << prog << "\n\n";

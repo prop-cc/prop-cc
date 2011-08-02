@@ -1,6 +1,6 @@
 #include <AD/persist/pstream.h>
 #include <AD/memory/strpool.h>
-#include <fstream.h>
+#include <fstream>
 
 datatype Exp :: collectable persistent =
     NOexp                  => "<none>" 
@@ -13,7 +13,7 @@ datatype Exp :: collectable persistent =
   | IFexp  (Exp, Exp, Exp) => "if" _ "then" { _ } "else" { _ } "endif"
 
 and Literal :: collectable persistent
-  = NOlit                    => "<???>"
+  = NOlit                    => "<??" "?>"
   | INTlit (int)             => _
   | REALlit (double)         => _
   | STRINGlit (const char *) => "\"" _ "\""
@@ -31,13 +31,16 @@ instantiate datatype Exp, Literal;
 const char * data_file = "persist2.dat";
 
 int main()
-{  GC::get_default_gc().set_initial_heap_size(1024*1024);
+{
+   using namespace std;
+
+   GC::get_default_gc().set_initial_heap_size(1024*1024);
    for (int i = 0; i < 5000; i++) {
       StringPool pool;
-      Exp e0 = ADDstd::exp(IDexp("x"),LITexp(INTlit(1)));
-      Exp e1 = MULstd::exp(e0,SUBexp(e0,IDexp("y")));
-      e1 = IFstd::exp(e1,e1,e1);
-      e1 = DIVstd::exp(LITexp(STRINGlit("Hello world")),e1);
+      Exp e0 = ADDexp(IDexp("x"),LITexp(INTlit(1)));
+      Exp e1 = MULexp(e0,SUBexp(e0,IDexp("y")));
+      e1 = IFexp(e1,e1,e1);
+      e1 = DIVexp(LITexp(STRINGlit("Hello world")),e1);
       cout << '.' << flush;
       if (i % 1000 == 0) cout << ": e1 = " << e1 << '\n';
       {  ofstream F(data_file);
@@ -49,10 +52,10 @@ int main()
          F.close();
       }
       // Generate garbage
-      {  Exp e0 = ADDstd::exp(IDexp("x"),LITexp(INTlit(1)));
-         Exp e1 = MULstd::exp(e0,SUBexp(e0,IDexp("y")));
-         e1 = IFstd::exp(e1,e1,e1);
-         e1 = DIVstd::exp(LITexp(STRINGlit("Hello world")),e1);
+      {  Exp e0 = ADDexp(IDexp("x"),LITexp(INTlit(1)));
+         Exp e1 = MULexp(e0,SUBexp(e0,IDexp("y")));
+         e1 = IFexp(e1,e1,e1);
+         e1 = DIVexp(LITexp(STRINGlit("Hello world")),e1);
       }
       Exp e2 = NOexp;
       Exp e3 = NOexp;

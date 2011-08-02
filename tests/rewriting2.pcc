@@ -53,7 +53,9 @@ instantiate datatype EXP;
 //  Input a number and test the rewrite rules.
 //////////////////////////////////////////////////////////////////////////////
 int main()
-{  
+{
+   using namespace std;
+  
    ///////////////////////////////////////////////////////////////////////////
    //  Give ourselves some more memory (2Meg) to work with.
    //  The default heap size is only 128K.   Using a larger heap

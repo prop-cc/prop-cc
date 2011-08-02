@@ -35,6 +35,8 @@ instantiate datatype EXP;
 /////////////////////////////////////////////////////////////////////////////
 int main()
 {
+   using namespace std;
+
    EXP a = var ("a");
    EXP b = var ("b");
    EXP c = var ("c");

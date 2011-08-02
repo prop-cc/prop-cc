@@ -78,7 +78,7 @@ public:
   }
   inline virtual Bool is_full()   const
   {
-    return tally == Collection<T>::capacity();
+    return tally == this->capacity();
   }
   // virtual int capacity() const;  // inherited
   // virtual Bool contains(const T& e) const; // inherited

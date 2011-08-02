@@ -1,6 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
+//  This file is generated automatically using Prop (version 2.4.1).
 //  The original source file is "gcgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -62,6 +61,13 @@ void DatatypeClass::generate_gc_implementation( CodeGen& C, Tys tys, DefKind k)
     return;
   }
 
+  if (tys != 
+#line 51 "gcgen.pcc"
+#line 51 "gcgen.pcc"
+nil_1_
+#line 51 "gcgen.pcc"
+#line 51 "gcgen.pcc"
+) C.pr( "%^template <>");
   C.pr( "%^void %s%P::trace(GC * gc__)" "%^{%+", class_name, tys);
 
   // Invoke base class tracing methods
@@ -76,11 +82,11 @@ void DatatypeClass::generate_gc_implementation( CodeGen& C, Tys tys, DefKind k)
     if (is_array)
       arg_ty = mkarrayty( arg_ty, IDexp( "len_"));
     gen_field_tracing_methods( C, DEREFexp( IDexp( 
-#line 64 "gcgen.pcc"
-#line 64 "gcgen.pcc"
+#line 65 "gcgen.pcc"
+#line 65 "gcgen.pcc"
 _g_c_g_e_nco_c_c_Q1
-#line 64 "gcgen.pcc"
-#line 64 "gcgen.pcc"
+#line 65 "gcgen.pcc"
+#line 65 "gcgen.pcc"
 )),
                                arg_ty, tys, k, true);
   }
@@ -130,8 +136,8 @@ void DatatypeClass::gen_field_tracing_methods
    (CodeGen& C, Exp exp, Ty ty, Tys tys, DefKind k, Bool toplevel)
 {
   
-#line 112 "gcgen.pcc"
-#line 160 "gcgen.pcc"
+#line 113 "gcgen.pcc"
+#line 161 "gcgen.pcc"
 {
   Ty _V1 = deref_all(ty);
   if (_V1) {
@@ -140,20 +146,20 @@ void DatatypeClass::gen_field_tracing_methods
         if (boxed(((Ty_TYCONty *)_V1)->_1)) {
           switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 127 "gcgen.pcc"
+#line 128 "gcgen.pcc"
               
               Ids ls;
               Tys ts;
               for( ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V1)->_1)->_1, ts = ((Ty_TYCONty *)_V1)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, ls->_1), ts->_1, tys,k);
               
-#line 132 "gcgen.pcc"
+#line 133 "gcgen.pcc"
               } break;
             case a_TyCon::tag_ARRAYtycon: {
               if (((Ty_TYCONty *)_V1)->_2) {
                 if (((Ty_TYCONty *)_V1)->_2->_2) {
                   L1:; 
-#line 148 "gcgen.pcc"
+#line 149 "gcgen.pcc"
                   
                   if (is_gc_ty(ty))
                   {
@@ -167,9 +173,9 @@ void DatatypeClass::gen_field_tracing_methods
                   }
                   else
                     C.pr( "%^// omitted %T", ty); 
-#line 160 "gcgen.pcc"
+#line 161 "gcgen.pcc"
                 } else {
-#line 134 "gcgen.pcc"
+#line 135 "gcgen.pcc"
                   
                   C.pr(
                         "%^{%+"
@@ -178,18 +184,18 @@ void DatatypeClass::gen_field_tracing_methods
                         ((TyCon_ARRAYtycon *)((Ty_TYCONty *)_V1)->_1)->ARRAYtycon
                       );
                   gen_field_tracing_methods( C, INDEXexp( exp, IDexp( 
-#line 141 "gcgen.pcc"
-#line 141 "gcgen.pcc"
+#line 142 "gcgen.pcc"
+#line 142 "gcgen.pcc"
                   _g_c_g_e_nco_c_c_Q2
-#line 141 "gcgen.pcc"
-#line 141 "gcgen.pcc"
+#line 142 "gcgen.pcc"
+#line 142 "gcgen.pcc"
                   )), ((Ty_TYCONty *)_V1)->_2->_1, tys, k);
                   C.pr(
                         "%-%^}"
                         "%-%^}"
                       );
                   
-#line 146 "gcgen.pcc"
+#line 147 "gcgen.pcc"
                 }
               } else { goto L1; }
               } break;
@@ -198,22 +204,22 @@ void DatatypeClass::gen_field_tracing_methods
         } else {
           switch ((int)((Ty_TYCONty *)_V1)->_1) {
             case ((int)v_TUPLEtycon): {
-#line 115 "gcgen.pcc"
+#line 116 "gcgen.pcc"
               
               int i = 1;
               for_each ( Ty, ty, ((Ty_TYCONty *)_V1)->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
               
-#line 119 "gcgen.pcc"
+#line 120 "gcgen.pcc"
               } break;
             case ((int)v_EXTUPLEtycon): {
-#line 121 "gcgen.pcc"
+#line 122 "gcgen.pcc"
               
               int i = 1;
               for_each ( Ty, ty, ((Ty_TYCONty *)_V1)->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
               
-#line 125 "gcgen.pcc"
+#line 126 "gcgen.pcc"
               } break;
             default: { goto L1; } break;
           }
@@ -223,11 +229,11 @@ void DatatypeClass::gen_field_tracing_methods
     }
   } else { goto L1; }
 }
-#line 161 "gcgen.pcc"
-#line 161 "gcgen.pcc"
+#line 162 "gcgen.pcc"
+#line 162 "gcgen.pcc"
 
 }
-#line 163 "gcgen.pcc"
+#line 164 "gcgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
