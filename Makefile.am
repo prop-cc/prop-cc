@@ -23,7 +23,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 SUBDIRS = include lib-src prop-src bin demos tests
-EXTRA_DIST = VisualStudio2010
+# EXTRA_DIST = VisualStudio2010
 
 dist_noinst_SCRIPTS = propwrap
 

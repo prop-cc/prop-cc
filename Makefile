@@ -250,7 +250,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 SUBDIRS = include lib-src prop-src bin demos tests
-EXTRA_DIST = VisualStudio2010
+# EXTRA_DIST = VisualStudio2010
 dist_noinst_SCRIPTS = propwrap
 all: all-recursive
 
