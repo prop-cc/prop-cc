@@ -44,18 +44,18 @@ include $(top_srcdir)/prop.am
 
 logic3_headers_ph = logic3.ph
 
-logic_sources_pcc = logic.pC
-logic2_sources_pcc = logic2.pC
-logic3_sources_pcc = logic3.pC
-inference_sources_pcc = inference.pC
-persistence_sources_pcc = persistence.pC
-prog_sources_pcc = prog.pC
-exp_sources_pcc = exp.pC
-rewrite_trick1_sources_pcc = rewrite-trick1.pC
-rewrite_trick2_sources_pcc = rewrite-trick2.pC
-rewrite_trick3_sources_pcc = rewrite-trick3.pC
-rewrite_trick4_sources_pcc = rewrite-trick4.pC
-rewrite_trick5_sources_pcc = rewrite-trick5.pC
+logic_sources_pcc = logic.pcc
+logic2_sources_pcc = logic2.pcc
+logic3_sources_pcc = logic3.pcc
+inference_sources_pcc = inference.pcc
+persistence_sources_pcc = persistence.pcc
+prog_sources_pcc = prog.pcc
+exp_sources_pcc = exp.pcc
+rewrite_trick1_sources_pcc = rewrite-trick1.pcc
+rewrite_trick2_sources_pcc = rewrite-trick2.pcc
+rewrite_trick3_sources_pcc = rewrite-trick3.pcc
+rewrite_trick4_sources_pcc = rewrite-trick4.pcc
+rewrite_trick5_sources_pcc = rewrite-trick5.pcc
 
 noinst_PROGRAMS = \
 	logic logic2 logic3 \
@@ -63,18 +63,18 @@ noinst_PROGRAMS = \
 	rewrite-trick1 rewrite-trick2 rewrite-trick3 \
 	rewrite-trick4 rewrite-trick5 
 
-nodist_logic_SOURCES = $(logic_sources_pcc:.pC=.C)
-nodist_logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
-nodist_logic3_SOURCES =  $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
-nodist_inference_SOURCES = $(inference_sources_pcc:.pC=.C)
-nodist_persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
-nodist_prog_SOURCES = $(prog_sources_pcc:.pC=.C)
-nodist_exp_SOURCES = $(exp_sources_pcc:.pC=.C)
-nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
-nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
-nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
-nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
-nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
+nodist_logic_SOURCES = $(logic_sources_pcc:.pcc=.cc)
+nodist_logic2_SOURCES = $(logic2_sources_pcc:.pcc=.cc)
+nodist_logic3_SOURCES =  $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pcc=.cc)
+nodist_inference_SOURCES = $(inference_sources_pcc:.pcc=.cc)
+nodist_persistence_SOURCES = $(persistence_sources_pcc:.pcc=.cc)
+nodist_prog_SOURCES = $(prog_sources_pcc:.pcc=.cc)
+nodist_exp_SOURCES = $(exp_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pcc=.cc)
 
 EXTRA_DIST = \
 	$(logic_sources_pcc) \
