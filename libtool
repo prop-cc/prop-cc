@@ -8915,7 +8915,7 @@ LD="/usr/bin/ld"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 
 # A language specific compiler.
-CC="icc"
+CC="g++"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes
@@ -9040,17 +9040,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs=""
+compiler_lib_search_dirs="/opt/intel/Compiler/11.1/064/lib/ia32 /opt/intel/Compiler/11.1/064/ipp/ia32/lib /opt/intel/Compiler/11.1/064/mkl/lib/32 /opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib /opt/intel/Compiler/11.1/064/lib/ia32 /opt/intel/Compiler/11.1/064/ipp/ia32/lib /opt/intel/Compiler/11.1/064/mkl/lib/32 /opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib /usr/lib/gcc/i686-redhat-linux/4.4.4 /usr/lib/gcc/i686-redhat-linux/4.4.4 /usr/lib/gcc/i686-redhat-linux/4.4.4/../../.."
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="-mIPOPT_obj_output_file_name=/tmp/ipo_iccDpYNZY.o -mGLOB_obj_output_file=/tmp/ipo_iccDpYNZY.o"
-postdep_objects="/usr/lib/gcc/i686-redhat-linux/4.4.4/../../../crti.o /usr/lib/gcc/i686-redhat-linux/4.4.4/crtbeginS.o /usr/lib/gcc/i686-redhat-linux/4.4.4/crtendS.o /usr/lib/gcc/i686-redhat-linux/4.4.4/../../../crtn.o"
+predep_objects="/usr/lib/gcc/i686-redhat-linux/4.4.4/../../../crti.o /usr/lib/gcc/i686-redhat-linux/4.4.4/crtbeginS.o"
+postdep_objects="/usr/lib/gcc/i686-redhat-linux/4.4.4/crtendS.o /usr/lib/gcc/i686-redhat-linux/4.4.4/../../../crtn.o"
 predeps=""
-postdeps="-L/opt/intel/Compiler/11.1/064/lib/ia32 -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib -L/opt/intel/Compiler/11.1/064/mkl/lib/32 -L/opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib -L/opt/intel/Compiler/11.1/064/lib/ia32 -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib -L/opt/intel/Compiler/11.1/064/mkl/lib/32 -L/opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib -L/opt/intel/Compiler/11.1/064/lib/ia32 -L/opt/intel/Compiler/11.1/064/lib/ia32/ -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib/ -L/opt/intel/Compiler/11.1/064/mkl/lib/32/ -L/opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib/ -L/usr/lib/gcc/i686-redhat-linux/4.4.4/ -L/usr/lib/gcc/i686-redhat-linux/4.4.4/../../../ -L/lib/ -L/usr/lib -limf -lsvml -lm -lipgo_pic -ldecimal -lgcc_s -lintlc -lc -lgcc_s -lirc_s -ldl -lc"
+postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path=""
+compiler_lib_search_path="-L/opt/intel/Compiler/11.1/064/lib/ia32 -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib -L/opt/intel/Compiler/11.1/064/mkl/lib/32 -L/opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib -L/opt/intel/Compiler/11.1/064/lib/ia32 -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib -L/opt/intel/Compiler/11.1/064/mkl/lib/32 -L/opt/intel/Compiler/11.1/064/tbb/ia32/cc4.1.0_libc2.4_kernel2.6.16.21/lib -L/usr/lib/gcc/i686-redhat-linux/4.4.4 -L/usr/lib/gcc/i686-redhat-linux/4.4.4 -L/usr/lib/gcc/i686-redhat-linux/4.4.4/../../.."
 
 # ### END LIBTOOL TAG CONFIG: CXX

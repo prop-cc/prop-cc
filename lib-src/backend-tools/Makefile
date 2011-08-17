@@ -102,8 +102,8 @@ CCDEPMODE = depmode=gcc3
 CFLAGS =  -Wno-deprecated
 CPP = gcc -E
 CPPFLAGS = 
-CXX = icc
-CXXCPP = icc -E
+CXX = g++
+CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2 -Wno-deprecated
 CYGPATH_W = echo
@@ -162,7 +162,7 @@ abs_srcdir = /home/half/anl/prop-cc/lib-src/backend-tools
 abs_top_builddir = /home/half/anl/prop-cc
 abs_top_srcdir = /home/half/anl/prop-cc
 ac_ct_CC = gcc
-ac_ct_CXX = 
+ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
 am__include = include
 am__leading_dot = .
