@@ -111,8 +111,8 @@ CCDEPMODE = depmode=gcc3
 CFLAGS =  -Wno-deprecated
 CPP = gcc -E
 CPPFLAGS = 
-CXX = /usr/local/llvm-trunk/bin/clang++
-CXXCPP = /usr/local/llvm-trunk/bin/clang++ -E
+CXX = icc
+CXXCPP = icc -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2 -Wno-deprecated
 CYGPATH_W = echo
