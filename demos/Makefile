@@ -304,37 +304,37 @@ top_builddir = ..
 top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 PROP_OPTS_LOCAL = -non_linear
-SUFFIXES = .pcc .ph .pC
+SUFFIXES = .pcc .ph
 PROPWRAP = $(top_srcdir)/propwrap
 PROPWRAP_ARGS = $(PROP) $(top_builddir)
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14 $(PROP_OPTS_LOCAL)
 logic3_headers_ph = logic3.ph
-logic_sources_pcc = logic.pC
-logic2_sources_pcc = logic2.pC
-logic3_sources_pcc = logic3.pC
-inference_sources_pcc = inference.pC
-persistence_sources_pcc = persistence.pC
-prog_sources_pcc = prog.pC
-exp_sources_pcc = exp.pC
-rewrite_trick1_sources_pcc = rewrite-trick1.pC
-rewrite_trick2_sources_pcc = rewrite-trick2.pC
-rewrite_trick3_sources_pcc = rewrite-trick3.pC
-rewrite_trick4_sources_pcc = rewrite-trick4.pC
-rewrite_trick5_sources_pcc = rewrite-trick5.pC
-nodist_logic_SOURCES = $(logic_sources_pcc:.pC=.C)
-nodist_logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
-nodist_logic3_SOURCES = $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
-nodist_inference_SOURCES = $(inference_sources_pcc:.pC=.C)
-nodist_persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
-nodist_prog_SOURCES = $(prog_sources_pcc:.pC=.C)
-nodist_exp_SOURCES = $(exp_sources_pcc:.pC=.C)
-nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
-nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
-nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
-nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
-nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
+logic_sources_pcc = logic.pcc
+logic2_sources_pcc = logic2.pcc
+logic3_sources_pcc = logic3.pcc
+inference_sources_pcc = inference.pcc
+persistence_sources_pcc = persistence.pcc
+prog_sources_pcc = prog.pcc
+exp_sources_pcc = exp.pcc
+rewrite_trick1_sources_pcc = rewrite-trick1.pcc
+rewrite_trick2_sources_pcc = rewrite-trick2.pcc
+rewrite_trick3_sources_pcc = rewrite-trick3.pcc
+rewrite_trick4_sources_pcc = rewrite-trick4.pcc
+rewrite_trick5_sources_pcc = rewrite-trick5.pcc
+nodist_logic_SOURCES = $(logic_sources_pcc:.pcc=.cc)
+nodist_logic2_SOURCES = $(logic2_sources_pcc:.pcc=.cc)
+nodist_logic3_SOURCES = $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pcc=.cc)
+nodist_inference_SOURCES = $(inference_sources_pcc:.pcc=.cc)
+nodist_persistence_SOURCES = $(persistence_sources_pcc:.pcc=.cc)
+nodist_prog_SOURCES = $(prog_sources_pcc:.pcc=.cc)
+nodist_exp_SOURCES = $(exp_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pcc=.cc)
+nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pcc=.cc)
 EXTRA_DIST = \
 	$(logic_sources_pcc) \
 	$(logic2_sources_pcc) \
@@ -386,7 +386,7 @@ all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
-.SUFFIXES: .pcc .ph .pC .C .cc .h .lo .o .obj
+.SUFFIXES: .pcc .ph .cc .h .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/prop.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -482,21 +482,21 @@ include ./$(DEPDIR)/rewrite-trick3.Po
 include ./$(DEPDIR)/rewrite-trick4.Po
 include ./$(DEPDIR)/rewrite-trick5.Po
 
-.C.o:
+.cc.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
 	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
 #	source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXXCOMPILE) -c -o $@ $<
 
-.C.obj:
+.cc.obj:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
 	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
 #	source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.C.lo:
+.cc.lo:
 	$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
 	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
 #	source='$<' object='$@' libtool=yes \
@@ -717,11 +717,6 @@ uninstall-am:
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
-	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
-	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
-	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
-
-.pC.C:
 	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
 	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<

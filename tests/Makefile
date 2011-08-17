@@ -498,7 +498,7 @@ top_builddir = ..
 top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 PROP_OPTS_LOCAL = 
-SUFFIXES = .pcc .ph .pC
+SUFFIXES = .pcc .ph
 PROPWRAP = $(top_srcdir)/propwrap
 PROPWRAP_ARGS = $(PROP) $(top_builddir)
 PROPPP_FLAGS = -I$(top_srcdir)/include
@@ -748,7 +748,7 @@ all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
-.SUFFIXES: .pcc .ph .pC .C .cc .h .lo .o .obj
+.SUFFIXES: .pcc .ph .cc .h .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/prop.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -1269,11 +1269,6 @@ uninstall-am:
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
-	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
-	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
-	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
-
-.pC.C:
 	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
 	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
