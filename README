@@ -1,4 +1,1 @@
-Prop is a pattern matching language based on C++.
-It implements algebraic datatypes, pattern matching and rewriting,
-and generates C++ code as output.
-
+The Prop compiler compiler is a an augmented C++ to C++ translator. It adds alegebraic data types, pattern matching, rewriting, a parser generator and a lexer generator, amongst other augmentations.
