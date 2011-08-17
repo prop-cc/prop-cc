@@ -95,12 +95,12 @@ public:
   inline V& operator [] (const K& key) // lookup; insert default if not found
   {
     Ix i;
-    return value ((i = lookup(key)) ? i : insert(key,defaultValue));
+    return value ((i = this->lookup(key)) ? i : insert(key,defaultValue));
   }
 
   inline const V& operator [] (const K& key) const
   {
-    return value(lookup(key));
+    return value(this->lookup(key));
   }
   // virtual Ix lookup (const K& k) const;   // inherited
 

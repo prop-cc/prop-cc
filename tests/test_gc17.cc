@@ -1,6 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.1).
 //  The original source file is "test_gc17.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -37,7 +36,9 @@ template <class T> class a_TREE;
 #define TREE(T) a_TREE<T> *
 #endif
 
-#  define empty 0
+#  define v_empty 0
+
+#  define empty v_empty
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -46,29 +47,34 @@ template <class T> class a_TREE;
 ///////////////////////////////////////////////////////////////////////////////
 template <class T> class a_TREE : public GCObject {
 public:
-   enum Tag_TREE {
-      tag_leaf = 0, tag_node = 1
-   };
+  enum Tag_TREE {
+    tag_leaf = 0, tag_node = 1
+  };
 
 public:
-   const Tag_TREE tag__; // variant tag
+  inline virtual ~a_TREE()
+  {
+  }
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   inline a_TREE(Tag_TREE t__) : tag__(t__) {}
-public:
-   inline virtual ~a_TREE()
-   {
-   }
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
-protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 template <class T> inline int boxed(const a_TREE<T> * x) { return x != 0; }
-template <class T> inline int untag(const a_TREE<T> * x) { return x ? (x->tag__+1) : 0; }
+///////////////////////////////////////////////////////////////////////////////
+//
+// Embbeded tag extraction functions
+//
+///////////////////////////////////////////////////////////////////////////////
+template <class T> inline int untagp(const a_TREE<T> * x)
+  { return (unsigned long)x & 3; }
+template <class T> inline a_TREE<T> * derefp(const a_TREE<T> * x)
+  { return (a_TREE<T>*)((unsigned long)x & ~3); }
+template <class T> inline int untag(const a_TREE<T> * x) { return x ? untagp(x)+1 : 0; }
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Class for datatype constructor TREE<T>::leaf
@@ -77,21 +83,21 @@ template <class T> inline int untag(const a_TREE<T> * x) { return x ? (x->tag__+
 template <class T> class TREE_leaf : public a_TREE<T>  {
 public:
 #line 20 "test_gc17.pcc"
-   T leaf; 
-   inline TREE_leaf (T const & x_leaf)
-    : a_TREE<T>(tag_leaf), leaf(x_leaf)
-   {
-   }
-   inline ~TREE_leaf()
-   {
-   }
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  T leaf; 
+  inline TREE_leaf (T const & x_leaf)
+   : leaf(x_leaf)
+  {
+  }
+  inline ~TREE_leaf()
+  {
+  }
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -103,21 +109,21 @@ public:
 template <class T> class TREE_node : public a_TREE<T>  {
 public:
 #line 21 "test_gc17.pcc"
-   a_TREE<T> *  _1; T _2; a_TREE<T> *  _3; 
-   inline TREE_node (a_TREE<T> *  x_1, T const & x_2, a_TREE<T> *  x_3)
-    : a_TREE<T>(tag_node), _1(x_1), _2(x_2), _3(x_3)
-   {
-   }
-   inline ~TREE_node()
-   {
-   }
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  a_TREE<T> *  _1; T _2; a_TREE<T> *  _3; 
+  inline TREE_node (a_TREE<T> *  x_1, T const & x_2, a_TREE<T> *  x_3)
+   : _1(x_1), _2(x_2), _3(x_3)
+  {
+  }
+  inline ~TREE_node()
+  {
+  }
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -128,11 +134,11 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 template <class T> inline a_TREE<T> * leaf (T const & x_leaf)
 {
-   return new TREE_leaf<T> (x_leaf);
+  return (a_TREE<T>*)((unsigned long)(new TREE_leaf<T> (x_leaf))|a_TREE<T>::tag_leaf);
 }
 template <class T> inline a_TREE<T> * node (a_TREE<T> *  x_1, T const & x_2, a_TREE<T> *  x_3)
 {
-   return new TREE_node<T> (x_1, x_2, x_3);
+  return (a_TREE<T>*)((unsigned long)(new TREE_node<T> (x_1, x_2, x_3))|a_TREE<T>::tag_node);
 }
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -178,25 +184,30 @@ template class TREE_node<int>;
 template a_TREE<int> * node(a_TREE<char const *> *  x_1, char const * const & x_2, a_TREE<char const *> *  x_3);
 template int boxed(const a_TREE<int> *);
 template int untag(const a_TREE<int> *);
+template int untagp(const a_TREE<int> *);
+template a_TREE<int> * derefp(const a_TREE<int> *);
 template a_TREE<int> * _leaf(const a_TREE<int> *);
 template a_TREE<int> * _node(const a_TREE<int> *);
 #endif /* PROP_EXPLICIT_TEMPLATE_INSTANTIATION */
+template <>
 void a_TREE<int>::trace(GC * gc__)
 {
 }
 
+template <>
 void TREE_leaf<int>::trace(GC * gc__)
 {
-   // call to method a_TREE<int>::trace() has been optimized out
-   // omitted int const &
+  // call to method a_TREE<int>::trace() has been optimized out
+  // omitted int const &
 }
 
+template <>
 void TREE_node<int>::trace(GC * gc__)
 {
-   // call to method a_TREE<int>::trace() has been optimized out
-   this->_1 = (a_TREE<int> *  )gc__->trace(this->_1); // TREE<int> 
-   // omitted int const &
-   this->_3 = (a_TREE<int> *  )gc__->trace(this->_3); // TREE<int> 
+  // call to method a_TREE<int>::trace() has been optimized out
+  this->_1 = (a_TREE<int> *  )gc__->trace(this->_1); // TREE<int> 
+  // omitted int const &
+  this->_3 = (a_TREE<int> *  )gc__->trace(this->_3); // TREE<int> 
 }
 
 
@@ -215,25 +226,30 @@ template class TREE_node<char const *>;
 template a_TREE<char const *> * node(a_TREE<int> *  x_1, int const & x_2, a_TREE<int> *  x_3);
 template int boxed(const a_TREE<char const *> *);
 template int untag(const a_TREE<char const *> *);
+template int untagp(const a_TREE<char const *> *);
+template a_TREE<char const *> * derefp(const a_TREE<char const *> *);
 template a_TREE<char const *> * _leaf(const a_TREE<char const *> *);
 template a_TREE<char const *> * _node(const a_TREE<char const *> *);
 #endif /* PROP_EXPLICIT_TEMPLATE_INSTANTIATION */
+template <>
 void a_TREE<char const *>::trace(GC * gc__)
 {
 }
 
+template <>
 void TREE_leaf<char const *>::trace(GC * gc__)
 {
-   // call to method a_TREE<char const *>::trace() has been optimized out
-   // omitted char const * const &
+  // call to method a_TREE<char const *>::trace() has been optimized out
+  // omitted char const * const &
 }
 
+template <>
 void TREE_node<char const *>::trace(GC * gc__)
 {
-   // call to method a_TREE<char const *>::trace() has been optimized out
-   this->_1 = (a_TREE<char const *> *  )gc__->trace(this->_1); // TREE<char const *> 
-   // omitted char const * const &
-   this->_3 = (a_TREE<char const *> *  )gc__->trace(this->_3); // TREE<char const *> 
+  // call to method a_TREE<char const *>::trace() has been optimized out
+  this->_1 = (a_TREE<char const *> *  )gc__->trace(this->_1); // TREE<char const *> 
+  // omitted char const * const &
+  this->_3 = (a_TREE<char const *> *  )gc__->trace(this->_3); // TREE<char const *> 
 }
 
 
@@ -253,26 +269,26 @@ a_TREE<int> *
 {  
 #line 34 "test_gc17.pcc"
 {
-   if (t) {
-      if (t->tag__) {
-         
+  if (t) {
+    if (untagp(t)) {
+      
 #line 33 "test_gc17.pcc"
-       return sum(_node(t)->_1) + _node(t)->_2 + sum(_node(t)->_3);
-         
+    return sum(_node(derefp(t))->_1) + _node(derefp(t))->_2 + sum(_node(derefp(t))->_3);
+      
 #line 34 "test_gc17.pcc"
-      } else {
-         
-#line 32 "test_gc17.pcc"
-  return _leaf(t)->leaf;
-         
-#line 33 "test_gc17.pcc"
-      }
-   } else {
-#line 31 "test_gc17.pcc"
-  return 0;
+    } else {
       
 #line 32 "test_gc17.pcc"
-   }
+ return _leaf(t)->leaf;
+      
+#line 33 "test_gc17.pcc"
+    }
+  } else {
+#line 31 "test_gc17.pcc"
+    return 0;
+    
+#line 32 "test_gc17.pcc"
+  }
 }
 #line 34 "test_gc17.pcc"
 #line 34 "test_gc17.pcc"
@@ -290,27 +306,27 @@ a_TREE<int> *
 {  
 #line 46 "test_gc17.pcc"
 {
-   if (t) {
-      if (t->tag__) {
-         
+  if (t) {
+    if (untagp(t)) {
+      
 #line 44 "test_gc17.pcc"
-       return sharing(_node(t)->_1) + sharing(_node(t)->_3) 
-         + ((_node(t)->_1 != empty && _node(t)->_1 == _node(t)->_3) ? 1 : 0);
-         
+    return sharing(_node(derefp(t))->_1) + sharing(_node(derefp(t))->_3) 
+      + ((_node(derefp(t))->_1 != empty && _node(derefp(t))->_1 == _node(derefp(t))->_3) ? 1 : 0);
+      
 #line 46 "test_gc17.pcc"
-      } else {
-         
-#line 43 "test_gc17.pcc"
-  return 0;
-         
-#line 44 "test_gc17.pcc"
-      }
-   } else {
-#line 42 "test_gc17.pcc"
-  return 0;
+    } else {
       
 #line 43 "test_gc17.pcc"
-   }
+ return 0;
+      
+#line 44 "test_gc17.pcc"
+    }
+  } else {
+#line 42 "test_gc17.pcc"
+    return 0;
+    
+#line 43 "test_gc17.pcc"
+  }
 }
 #line 46 "test_gc17.pcc"
 #line 46 "test_gc17.pcc"
@@ -329,26 +345,26 @@ a_TREE<T> *
    {  
 #line 58 "test_gc17.pcc"
 {
-   if (t) {
-      if (t->tag__) {
-         
+  if (t) {
+    if (untagp(t)) {
+      
 #line 57 "test_gc17.pcc"
-       return size(_node(t)->_1) + 1 + size(_node(t)->_3);
-         
+    return size(_node(derefp(t))->_1) + 1 + size(_node(derefp(t))->_3);
+      
 #line 58 "test_gc17.pcc"
-      } else {
-         
-#line 56 "test_gc17.pcc"
-  return 1;
-         
-#line 57 "test_gc17.pcc"
-      }
-   } else {
-#line 55 "test_gc17.pcc"
-  return 0;
+    } else {
       
 #line 56 "test_gc17.pcc"
-   }
+ return 1;
+      
+#line 57 "test_gc17.pcc"
+    }
+  } else {
+#line 55 "test_gc17.pcc"
+    return 0;
+    
+#line 56 "test_gc17.pcc"
+  }
 }
 #line 58 "test_gc17.pcc"
 #line 58 "test_gc17.pcc"
@@ -367,30 +383,30 @@ a_TREE<T> *
    {  
 #line 74 "test_gc17.pcc"
 {
-   if (t) {
-      if (t->tag__) {
-         
+  if (t) {
+    if (untagp(t)) {
+      
 #line 69 "test_gc17.pcc"
-     
-         assert (HM::is_mapped(t) && 
-                 HM::page_gc(t) == GC::get_default_gc().gc_id());
-         assert (HM::get_object_map().is_marked(t));
-         check(_node(t)->_1); check(_node(t)->_3); 
-         
+  
+      assert (HM::is_mapped(t) && 
+              HM::page_gc(t) == GC::get_default_gc().gc_id());
+      assert (HM::get_object_map().is_marked(t));
+      check(_node(derefp(t))->_1); check(_node(derefp(t))->_3); 
+      
 #line 74 "test_gc17.pcc"
-      } else {
-         
-#line 68 "test_gc17.pcc"
-  return;
-         
-#line 69 "test_gc17.pcc"
-      }
-   } else {
-#line 67 "test_gc17.pcc"
-  return;
+    } else {
       
 #line 68 "test_gc17.pcc"
-   }
+ return;
+      
+#line 69 "test_gc17.pcc"
+    }
+  } else {
+#line 67 "test_gc17.pcc"
+    return;
+    
+#line 68 "test_gc17.pcc"
+  }
 }
 #line 74 "test_gc17.pcc"
 #line 74 "test_gc17.pcc"
@@ -466,8 +482,8 @@ Number of ifs generated      = 8
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */
