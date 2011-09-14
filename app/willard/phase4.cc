@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "phase4.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\phase4.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "phase4.pcc"
+#line 1 "../../../app/willard/phase4.pcc"
 #include <AD/pretty/postream.h>
 #include "list.h"
 #include "phase4.h"
@@ -43,13 +42,13 @@ Exp Phase4::make_projection(Id x, Id y, Ids xs, Exps As,
 			    const IdSet& fv, Exp predicate)
 {  Exp exp = predicate;
    
-#line 33 "phase4.pcc"
-#line 41 "phase4.pcc"
+#line 33 "../../../app/willard/phase4.pcc"
+#line 41 "../../../app/willard/phase4.pcc"
 {
   for (;;) {
     if (xs) {
       if (As) {
-#line 35 "phase4.pcc"
+#line 35 "../../../app/willard/phase4.pcc"
       // Make projections.
         	 // If a new existential quantifier is introduced, set
         	 // change to true so that we'll reiterate the process.
@@ -57,34 +56,34 @@ Exp Phase4::make_projection(Id x, Id y, Ids xs, Exps As,
         	 { exp = EXISTS(xs->_1,As->_1,exp); changed = true; }
         	 xs = xs->_2; As = As->_2;
               
-#line 41 "phase4.pcc"
+#line 41 "../../../app/willard/phase4.pcc"
       } else { goto L1; }
     } else { goto L1; }
   }
   L1:;
 }
-#line 42 "phase4.pcc"
-#line 42 "phase4.pcc"
+#line 42 "../../../app/willard/phase4.pcc"
+#line 42 "../../../app/willard/phase4.pcc"
 
    exp = GENERATOR(
-#line 43 "phase4.pcc"
-#line 43 "phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
 list_1_(x,list_1_(y))
-#line 43 "phase4.pcc"
-#line 43 "phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
 ,
-#line 43 "phase4.pcc"
-#line 43 "phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
 list_1_(range_of(x),list_1_(range_of(y)))
-#line 43 "phase4.pcc"
-#line 43 "phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
+#line 43 "../../../app/willard/phase4.pcc"
 ,
 	    GUARD(exp,TUPLE(
-#line 44 "phase4.pcc"
-#line 44 "phase4.pcc"
+#line 44 "../../../app/willard/phase4.pcc"
+#line 44 "../../../app/willard/phase4.pcc"
 list_1_(ID(x),list_1_(ID(y)))
-#line 44 "phase4.pcc"
-#line 44 "phase4.pcc"
+#line 44 "../../../app/willard/phase4.pcc"
+#line 44 "../../../app/willard/phase4.pcc"
 )));
    add_edge_query(x,y,exp);
    Id Q = gensym();
@@ -99,15 +98,15 @@ list_1_(ID(x),list_1_(ID(y)))
 ///////////////////////////////////////////////////////////////////////////////
 Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
 {  
-#line 57 "phase4.pcc"
-#line 82 "phase4.pcc"
+#line 57 "../../../app/willard/phase4.pcc"
+#line 82 "../../../app/willard/phase4.pcc"
 {
   switch (P->tag__) {
     case a_Exp::tag_OP: {
       if (_less_string(_OP(P)->_1,"=")) {
         if (_equal_string(_OP(P)->_1,"#")) {
         L2:; 
-#line 64 "phase4.pcc"
+#line 64 "../../../app/willard/phase4.pcc"
       
         // Collect all free variables in this expression.
         IdSet S;
@@ -126,16 +125,16 @@ Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
         	 add_subquery(Q, GENERATOR(xs,As,GUARD(P,E)));
         	 return ID(Q);
         
-#line 81 "phase4.pcc"
+#line 81 "../../../app/willard/phase4.pcc"
 }
         else if (_equal_string(_OP(P)->_1,"/=")) { goto L2; }
         else if (_equal_string(_OP(P)->_1,"<")) { goto L2; }
         else if (_equal_string(_OP(P)->_1,"<=")) { goto L2; }
         else {
         L3:; 
-#line 82 "phase4.pcc"
+#line 82 "../../../app/willard/phase4.pcc"
        error("Can't decompose conjunct", P); return P; 
-#line 82 "phase4.pcc"
+#line 82 "../../../app/willard/phase4.pcc"
 }
       } else {
         if (_equal_string(_OP(P)->_1,"=")) { goto L2; }
@@ -145,18 +144,18 @@ Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
         if (_OP(P)->_2) {
           if (_OP(P)->_2->_2) {
             if (_OP(P)->_2->_2->_2) { goto L3; } else {
-#line 59 "phase4.pcc"
+#line 59 "../../../app/willard/phase4.pcc"
             Exp x = decompose_conjunct(E,xs,As,_OP(P)->_2->_1);
               Exp y = decompose_conjunct(E,xs,As,_OP(P)->_2->_2->_1);
               	 return OP("join",
-#line 61 "phase4.pcc"
-#line 61 "phase4.pcc"
+#line 61 "../../../app/willard/phase4.pcc"
+#line 61 "../../../app/willard/phase4.pcc"
               list_1_(x,list_1_(y))
-#line 61 "phase4.pcc"
-#line 61 "phase4.pcc"
+#line 61 "../../../app/willard/phase4.pcc"
+#line 61 "../../../app/willard/phase4.pcc"
               );
               
-#line 62 "phase4.pcc"
+#line 62 "../../../app/willard/phase4.pcc"
             }
           } else { goto L3; }
         } else { goto L3; }
@@ -167,8 +166,8 @@ Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
     default: { goto L3; } break;
   }
 }
-#line 83 "phase4.pcc"
-#line 83 "phase4.pcc"
+#line 83 "../../../app/willard/phase4.pcc"
+#line 83 "../../../app/willard/phase4.pcc"
 
 }
 
@@ -187,8 +186,8 @@ Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
 //  Transformation rules to construct edge queries.
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 101 "phase4.pcc"
-#line 133 "phase4.pcc"
+#line 101 "../../../app/willard/phase4.pcc"
+#line 133 "../../../app/willard/phase4.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -197,7 +196,7 @@ Exp Phase4::decompose_conjunct(Exp E, Ids xs, Exps As, Exp P)
 #ifndef DEBUG_Phase4
 #define DEBUG_Phase4(repl,redex,file,line,rule) repl
 #else
-static const char * Phase4_file_name = "phase4.pcc";
+static const char * Phase4_file_name = "..\..\..\app\willard\phase4.pcc";
 #endif
 
 static const TreeTables::ShortState Phase4_theta_0[2][2] = {
@@ -351,100 +350,93 @@ replacement__:
   }
   switch (s__) {
     case 5: {
-#line 131 "phase4.pcc"
-      Exp  repl__;
-      int _X1 = _LET(_LET(redex)->_2)->_3->get_rewrite_state();
-      switch (_X1) {
-        case 3: repl__ = LET(_LET(_LET(redex)->_2)->_1,_LET(_LET(redex)->_2)->_2,LET(_LET(_LET(_LET(redex)->_2)->_3)->_1,_LET(_LET(_LET(redex)->_2)->_3)->_2,LET(_LET(redex)->_1,_LET(_LET(_LET(redex)->_2)->_3)->_3,_LET(redex)->_3))); break;
-        default: 
-        repl__ = LET(_LET(_LET(redex)->_2)->_1,_LET(_LET(redex)->_2)->_2,LET(_LET(redex)->_1,_LET(_LET(redex)->_2)->_3,_LET(redex)->_3)); break;
-      }
-      { redex = DEBUG_Phase4(repl__,redex,Phase4_file_name,131,"LET (x, LET (y, b, a), e): ...");
+#line 131 "../../../app/willard/phase4.pcc"
+      { redex = DEBUG_Phase4(LET(_LET(_LET(redex)->_2)->_1,_LET(_LET(redex)->_2)->_2,LET(_LET(redex)->_1,_LET(_LET(redex)->_2)->_3,_LET(redex)->_3)),redex,Phase4_file_name,131,"LET (x, LET (y, b, a), e): ...");
         r__ = 1; goto replacement__; }
-#line 133 "phase4.pcc"
+#line 133 "../../../app/willard/phase4.pcc"
 } break;
     case 8: {
-#line 111 "phase4.pcc"
+#line 111 "../../../app/willard/phase4.pcc"
     Ids  xs   = 
-#line 111 "phase4.pcc"
-#line 111 "phase4.pcc"
+#line 111 "../../../app/willard/phase4.pcc"
+#line 111 "../../../app/willard/phase4.pcc"
       nil_1_
-#line 111 "phase4.pcc"
-#line 111 "phase4.pcc"
+#line 111 "../../../app/willard/phase4.pcc"
+#line 111 "../../../app/willard/phase4.pcc"
       ;
       Exps Qs   = 
-#line 112 "phase4.pcc"
-#line 112 "phase4.pcc"
+#line 112 "../../../app/willard/phase4.pcc"
+#line 112 "../../../app/willard/phase4.pcc"
       nil_1_
-#line 112 "phase4.pcc"
-#line 112 "phase4.pcc"
+#line 112 "../../../app/willard/phase4.pcc"
+#line 112 "../../../app/willard/phase4.pcc"
       ;
       Exps exps = 
-#line 113 "phase4.pcc"
-#line 113 "phase4.pcc"
+#line 113 "../../../app/willard/phase4.pcc"
+#line 113 "../../../app/willard/phase4.pcc"
       nil_1_
-#line 113 "phase4.pcc"
-#line 113 "phase4.pcc"
+#line 113 "../../../app/willard/phase4.pcc"
+#line 113 "../../../app/willard/phase4.pcc"
       ;
       Exps conjuncts = _OP(_GUARD(_GENERATOR(redex)->_3)->_1)->_2;
       
-#line 115 "phase4.pcc"
-#line 124 "phase4.pcc"
+#line 115 "../../../app/willard/phase4.pcc"
+#line 124 "../../../app/willard/phase4.pcc"
       {
         for (;;) {
           if (conjuncts) {
-#line 117 "phase4.pcc"
+#line 117 "../../../app/willard/phase4.pcc"
           IdSet S;
             	   free_vars(conjuncts->_1,S);
             	   Id Q = gensym();
             	   xs   = 
-#line 120 "phase4.pcc"
-#line 120 "phase4.pcc"
+#line 120 "../../../app/willard/phase4.pcc"
+#line 120 "../../../app/willard/phase4.pcc"
             list_1_(Q,xs)
-#line 120 "phase4.pcc"
-#line 120 "phase4.pcc"
+#line 120 "../../../app/willard/phase4.pcc"
+#line 120 "../../../app/willard/phase4.pcc"
             ;
             	   Qs   = 
-#line 121 "phase4.pcc"
-#line 121 "phase4.pcc"
+#line 121 "../../../app/willard/phase4.pcc"
+#line 121 "../../../app/willard/phase4.pcc"
             list_1_(GENERATOR(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,GUARD(conjuncts->_1,_GUARD(_GENERATOR(redex)->_3)->_2)),Qs)
-#line 121 "phase4.pcc"
-#line 121 "phase4.pcc"
+#line 121 "../../../app/willard/phase4.pcc"
+#line 121 "../../../app/willard/phase4.pcc"
             ;
             exps = 
-#line 122 "phase4.pcc"
-#line 122 "phase4.pcc"
+#line 122 "../../../app/willard/phase4.pcc"
+#line 122 "../../../app/willard/phase4.pcc"
             list_1_(ID(Q),exps)
-#line 122 "phase4.pcc"
-#line 122 "phase4.pcc"
+#line 122 "../../../app/willard/phase4.pcc"
+#line 122 "../../../app/willard/phase4.pcc"
             ;
             	   conjuncts = conjuncts->_2;
             	
-#line 124 "phase4.pcc"
+#line 124 "../../../app/willard/phase4.pcc"
           } else { goto L4; }
         }
         L4:;
       }
-#line 125 "phase4.pcc"
-#line 125 "phase4.pcc"
+#line 125 "../../../app/willard/phase4.pcc"
+#line 125 "../../../app/willard/phase4.pcc"
       
       
            
-#line 127 "phase4.pcc"
-#line 127 "phase4.pcc"
+#line 127 "../../../app/willard/phase4.pcc"
+#line 127 "../../../app/willard/phase4.pcc"
       { redex = DEBUG_Phase4(make_let(xs,Qs,OP("join",exps)),redex,Phase4_file_name,110,"GENERATOR (vs, As, GUARD (OP (\"and\", es), E)): ...");
         r__ = 1; goto replacement__; }
-#line 127 "phase4.pcc"
-#line 127 "phase4.pcc"
+#line 127 "../../../app/willard/phase4.pcc"
+#line 127 "../../../app/willard/phase4.pcc"
       
       
-#line 128 "phase4.pcc"
+#line 128 "../../../app/willard/phase4.pcc"
 } break;
     case 10: {
-#line 105 "phase4.pcc"
+#line 105 "../../../app/willard/phase4.pcc"
       { redex = DEBUG_Phase4(OP("and",list_1_(_OP(redex)->_2->_1,_OP(_OP(redex)->_2->_2->_1)->_2)),redex,Phase4_file_name,105,"OP (\"and\", #[a, OP (\"and\", es)]): ...");
         r__ = 1; goto replacement__; }
-#line 110 "phase4.pcc"
+#line 110 "../../../app/willard/phase4.pcc"
 } break;
   }
   if (boxed(redex)) {
@@ -487,10 +479,10 @@ replacement__:
   
 }
 
-#line 133 "phase4.pcc"
-#line 133 "phase4.pcc"
+#line 133 "../../../app/willard/phase4.pcc"
+#line 133 "../../../app/willard/phase4.pcc"
 
-#line 134 "phase4.pcc"
+#line 134 "../../../app/willard/phase4.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

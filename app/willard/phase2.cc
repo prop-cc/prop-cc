@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "phase2.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\phase2.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "phase2.pcc"
+#line 1 "../../../app/willard/phase2.pcc"
 #include <AD/pretty/postream.h>
 #include "phase2.h"
 #include "list.h"
@@ -39,8 +38,8 @@ Exp Phase2::phase2(Exp e)
 //  by transforming them into count queries.
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 30 "phase2.pcc"
-#line 109 "phase2.pcc"
+#line 30 "../../../app/willard/phase2.pcc"
+#line 109 "../../../app/willard/phase2.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -49,7 +48,7 @@ Exp Phase2::phase2(Exp e)
 #ifndef DEBUG_Phase2
 #define DEBUG_Phase2(repl,redex,file,line,rule) repl
 #else
-static const char * Phase2_file_name = "phase2.pcc";
+static const char * Phase2_file_name = "..\..\..\app\willard\phase2.pcc";
 #endif
 
 static const TreeTables::Offset Phase2_accept_base [ 73 ] = {
@@ -269,131 +268,131 @@ replacement__:
 accept__:
   switch (*o__) {
     case 18: {
-#line 102 "phase2.pcc"
+#line 102 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(GUARD(And(_GUARD(redex)->_1,_GUARD(_GUARD(redex)->_2)->_1),_GUARD(_GUARD(redex)->_2)->_2),redex,Phase2_file_name,102,"GUARD (p1, GUARD (p2, E)): ...");
         r__ = 1; goto replacement__; }
-#line 107 "phase2.pcc"
+#line 107 "../../../app/willard/phase2.pcc"
 } break;
     case 17: if ((_GENERATOR(redex)->_1->_1 == _ID(_GENERATOR(redex)->_3)->ID))
     {
-#line 101 "phase2.pcc"
+#line 101 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(_GENERATOR(redex)->_2->_1,redex,Phase2_file_name,101,"GENERATOR (#[x], #[A], ID y) | (redex!GENERATOR.1!#[...].1 == redex!GENERATOR.3!ID): ...");
         r__ = 1; goto replacement__; }
-#line 102 "phase2.pcc"
+#line 102 "../../../app/willard/phase2.pcc"
 }
     else { ++o__; goto accept__; } break;
     case 16: if ((_BOOL(_LIT(_GUARD(_GENERATOR(redex)->_3)->_1)->LIT)->BOOL == true))
     {
-#line 100 "phase2.pcc"
+#line 100 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(GENERATOR(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,_GUARD(_GENERATOR(redex)->_3)->_2),redex,Phase2_file_name,100,"GENERATOR (x, A, GUARD (LIT BOOL _, E)) | (redex!GENERATOR.3!GUARD.1!LIT!BOOL == true): ...");
         r__ = 1; goto replacement__; }
-#line 101 "phase2.pcc"
+#line 101 "../../../app/willard/phase2.pcc"
 }
     else { ++o__; goto accept__; } break;
     case 15: {
-#line 98 "phase2.pcc"
+#line 98 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(GUARD(_OP(_GUARD(_GENERATOR(redex)->_3)->_1)->_2->_1,GENERATOR(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,GUARD(_OP(_GUARD(_GENERATOR(redex)->_3)->_1)->_2->_2->_1,_GUARD(_GENERATOR(redex)->_3)->_2))),redex,Phase2_file_name,98,"GENERATOR (x, A, GUARD (OP (\"and\", #[p1 as OP (\"nonempty\", #[C]), p2]), E)): ...");
         r__ = 1; goto replacement__; }
-#line 100 "phase2.pcc"
+#line 100 "../../../app/willard/phase2.pcc"
 } break;
     case 14: {
-#line 96 "phase2.pcc"
+#line 96 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(GUARD(_GUARD(_GENERATOR(redex)->_3)->_1,GENERATOR(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,_GUARD(_GENERATOR(redex)->_3)->_2)),redex,Phase2_file_name,96,"GENERATOR (x, A, GUARD (p as OP (\"nonempty\", #[C]), E)): ...");
         r__ = 1; goto replacement__; }
-#line 98 "phase2.pcc"
+#line 98 "../../../app/willard/phase2.pcc"
 } break;
     case 13: {
-#line 95 "phase2.pcc"
+#line 95 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(GENERATOR(append(_GENERATOR(redex)->_1,_GENERATOR(_GENERATOR(redex)->_3)->_1),append(_GENERATOR(redex)->_2,_GENERATOR(_GENERATOR(redex)->_3)->_2),_GENERATOR(_GENERATOR(redex)->_3)->_3),redex,Phase2_file_name,95,"GENERATOR (x, A, GENERATOR (y, B, C)): ...");
         r__ = 1; goto replacement__; }
-#line 96 "phase2.pcc"
+#line 96 "../../../app/willard/phase2.pcc"
 } break;
     case 12: {
-#line 93 "phase2.pcc"
+#line 93 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Or(_OP(_OP(redex)->_2->_1)->_2->_1,Or(_OP(_OP(redex)->_2->_1)->_2->_2->_1,_OP(redex)->_2->_2->_1)),redex,Phase2_file_name,93,"OP (\"or\", #[OP (\"or\", #[a, b]), c]): ...");
         r__ = 1; goto replacement__; }
-#line 95 "phase2.pcc"
+#line 95 "../../../app/willard/phase2.pcc"
 } break;
     case 11: {
-#line 92 "phase2.pcc"
+#line 92 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(_OP(_OP(redex)->_2->_1)->_2->_1,redex,Phase2_file_name,92,"OP (\"not\", #[OP (\"not\", #[a])]): ...");
         r__ = 1; goto replacement__; }
-#line 93 "phase2.pcc"
+#line 93 "../../../app/willard/phase2.pcc"
 } break;
     case 10: {
-#line 91 "phase2.pcc"
+#line 91 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(And(Not(_OP(_OP(redex)->_2->_1)->_2->_1),Not(_OP(_OP(redex)->_2->_1)->_2->_2->_1)),redex,Phase2_file_name,91,"OP (\"not\", #[OP (\"or\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 92 "phase2.pcc"
+#line 92 "../../../app/willard/phase2.pcc"
 } break;
     case 9: {
-#line 90 "phase2.pcc"
+#line 90 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Or(Not(_OP(_OP(redex)->_2->_1)->_2->_1),Not(_OP(_OP(redex)->_2->_1)->_2->_2->_1)),redex,Phase2_file_name,90,"OP (\"not\", #[OP (\"and\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 91 "phase2.pcc"
+#line 91 "../../../app/willard/phase2.pcc"
 } break;
     case 8: {
-#line 89 "phase2.pcc"
+#line 89 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Or(And(_OP(redex)->_2->_1,_OP(_OP(redex)->_2->_2->_1)->_2->_1),And(_OP(redex)->_2->_1,_OP(_OP(redex)->_2->_2->_1)->_2->_2->_1)),redex,Phase2_file_name,89,"OP (\"and\", #[a, OP (\"or\", #[b, c])]): ...");
         r__ = 1; goto replacement__; }
-#line 90 "phase2.pcc"
+#line 90 "../../../app/willard/phase2.pcc"
 } break;
     case 7: {
-#line 88 "phase2.pcc"
+#line 88 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Or(And(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(redex)->_2->_2->_1),And(_OP(_OP(redex)->_2->_1)->_2->_2->_1,_OP(redex)->_2->_2->_1)),redex,Phase2_file_name,88,"OP (\"and\", #[OP (\"or\", #[a, b]), c]): ...");
         r__ = 1; goto replacement__; }
-#line 89 "phase2.pcc"
+#line 89 "../../../app/willard/phase2.pcc"
 } break;
     case 6: {
-#line 83 "phase2.pcc"
+#line 83 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Gt(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,83,"OP (\"not\", #[OP (\"<=\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 88 "phase2.pcc"
+#line 88 "../../../app/willard/phase2.pcc"
 } break;
     case 5: {
-#line 82 "phase2.pcc"
+#line 82 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Ge(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,82,"OP (\"not\", #[OP (\"<\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 83 "phase2.pcc"
+#line 83 "../../../app/willard/phase2.pcc"
 } break;
     case 4: {
-#line 81 "phase2.pcc"
+#line 81 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Lt(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,81,"OP (\"not\", #[OP (\">=\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 82 "phase2.pcc"
+#line 82 "../../../app/willard/phase2.pcc"
 } break;
     case 3: {
-#line 80 "phase2.pcc"
+#line 80 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Le(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,80,"OP (\"not\", #[OP (\">\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 81 "phase2.pcc"
+#line 81 "../../../app/willard/phase2.pcc"
 } break;
     case 2: {
-#line 79 "phase2.pcc"
+#line 79 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Eq(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,79,"OP (\"not\", #[OP (\"/=\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 80 "phase2.pcc"
+#line 80 "../../../app/willard/phase2.pcc"
 } break;
     case 1: {
-#line 78 "phase2.pcc"
+#line 78 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Ne(_OP(_OP(redex)->_2->_1)->_2->_1,_OP(_OP(redex)->_2->_1)->_2->_2->_1),redex,Phase2_file_name,78,"OP (\"not\", #[OP (\"=\", #[a, b])]): ...");
         r__ = 1; goto replacement__; }
-#line 79 "phase2.pcc"
+#line 79 "../../../app/willard/phase2.pcc"
 } break;
     case 0: {
-#line 36 "phase2.pcc"
+#line 36 "../../../app/willard/phase2.pcc"
     IdSet S;
       free_vars(_EXISTS(redex)->_3,S);
       
       // Transform: exists x : A . p  where x does not occur in p
       // into:      #A > 0 and p
       if (! S.contains(_EXISTS(redex)->_1)) { 
-#line 41 "phase2.pcc"
-#line 41 "phase2.pcc"
+#line 41 "../../../app/willard/phase2.pcc"
+#line 41 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(And(Nonempty(_EXISTS(redex)->_2),_EXISTS(redex)->_3),redex,Phase2_file_name,35,"EXISTS (x, A, p): ...");
         r__ = 1; goto replacement__; }
-#line 41 "phase2.pcc"
-#line 41 "phase2.pcc"
+#line 41 "../../../app/willard/phase2.pcc"
+#line 41 "../../../app/willard/phase2.pcc"
      }
       
             // Transform: exists x : A . p(x) 
@@ -402,26 +401,26 @@ accept__:
             if (S.size() == 1)
             {  Id C = gensym("C");
       	 Exp find_query = GENERATOR(
-#line 48 "phase2.pcc"
-#line 48 "phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
       list_1_(_EXISTS(redex)->_1)
-#line 48 "phase2.pcc"
-#line 48 "phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
       ,
-#line 48 "phase2.pcc"
-#line 48 "phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
       list_1_(_EXISTS(redex)->_2)
-#line 48 "phase2.pcc"
-#line 48 "phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
+#line 48 "../../../app/willard/phase2.pcc"
       ,GUARD(_EXISTS(redex)->_3,ID(_EXISTS(redex)->_1)));
       	 add_subquery(C,find_query);
       	 
-#line 50 "phase2.pcc"
-#line 50 "phase2.pcc"
+#line 50 "../../../app/willard/phase2.pcc"
+#line 50 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Nonempty(ID(C)),redex,Phase2_file_name,35,"EXISTS (x, A, p): ...");
         r__ = 1; goto replacement__; }
-#line 50 "phase2.pcc"
-#line 50 "phase2.pcc"
+#line 50 "../../../app/willard/phase2.pcc"
+#line 50 "../../../app/willard/phase2.pcc"
       
       }
       
@@ -435,40 +434,40 @@ accept__:
       	 Exp B = range_of(y);
          Exp count_query = 
       	    GENERATOR(
-#line 62 "phase2.pcc"
-#line 62 "phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
       list_1_(y)
-#line 62 "phase2.pcc"
-#line 62 "phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
       ,
-#line 62 "phase2.pcc"
-#line 62 "phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
       list_1_(B)
-#line 62 "phase2.pcc"
-#line 62 "phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
+#line 62 "../../../app/willard/phase2.pcc"
       ,
       	       TUPLE(
-#line 63 "phase2.pcc"
-#line 63 "phase2.pcc"
+#line 63 "../../../app/willard/phase2.pcc"
+#line 63 "../../../app/willard/phase2.pcc"
       list_1_(ID(y),list_1_(Count(GENERATOR(list_1_(_EXISTS(redex)->_1),list_1_(_EXISTS(redex)->_2),GUARD(_EXISTS(redex)->_3,TUPLE(list_1_(ID(y),list_1_(ID(_EXISTS(redex)->_1)))))))))
-#line 66 "phase2.pcc"
-#line 66 "phase2.pcc"
+#line 66 "../../../app/willard/phase2.pcc"
+#line 66 "../../../app/willard/phase2.pcc"
       ));
       add_subquery(C,count_query);
       	 
-#line 68 "phase2.pcc"
-#line 68 "phase2.pcc"
+#line 68 "../../../app/willard/phase2.pcc"
+#line 68 "../../../app/willard/phase2.pcc"
       { redex = DEBUG_Phase2(Gt(APP(C,list_1_(ID(y))),Zero),redex,Phase2_file_name,35,"EXISTS (x, A, p): ...");
         r__ = 1; goto replacement__; }
-#line 68 "phase2.pcc"
-#line 68 "phase2.pcc"
+#line 68 "../../../app/willard/phase2.pcc"
+#line 68 "../../../app/willard/phase2.pcc"
       
       } 
       
       // Arity is not zero or one
       error("Cannot simplify quantifier",redex); 
       
-#line 73 "phase2.pcc"
+#line 73 "../../../app/willard/phase2.pcc"
 } break;
   }
   if (boxed(redex)) {
@@ -478,15 +477,15 @@ accept__:
     switch (redex->tag__) {
       case a_Exp::tag_LET: {
         if (
-#line 108 "phase2.pcc"
+#line 108 "../../../app/willard/phase2.pcc"
         has_subqueries()
-#line 108 "phase2.pcc"
+#line 108 "../../../app/willard/phase2.pcc"
 ) {
           
-#line 108 "phase2.pcc"
+#line 108 "../../../app/willard/phase2.pcc"
           { redex = DEBUG_Phase2(collect_subqueries(redex),redex,Phase2_file_name,108,"LET (x, A, B) | has_subqueries(): ...");
             r__ = 1; goto replacement__; }
-#line 109 "phase2.pcc"
+#line 109 "../../../app/willard/phase2.pcc"
         } else {
           }
         } break;
@@ -544,10 +543,10 @@ replacement__:
   
 }
 
-#line 109 "phase2.pcc"
-#line 109 "phase2.pcc"
+#line 109 "../../../app/willard/phase2.pcc"
+#line 109 "../../../app/willard/phase2.pcc"
 
-#line 110 "phase2.pcc"
+#line 110 "../../../app/willard/phase2.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

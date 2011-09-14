@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "paige.ph".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\paige.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "paige.ph"
+#line 1 "../../../app/willard/paige.ph"
 #ifndef paige_doyal_h
 #define paige_doyal_h
 
@@ -46,9 +45,9 @@ protected:
 				 //   mapping from child to parent
    SMap<Id,Id>      parent_closure; // the query graph (in closure form): 
    SMap<
-#line 36 "paige.ph"
+#line 36 "../../../app/willard/paige.ph"
 Tuple2<Id, Id>  
-#line 36 "paige.ph"
+#line 36 "../../../app/willard/paige.ph"
 ,Exp> edge_queries; // mapping from edge (x,y) to query Q(x,y)
    VarStack<Id> quantifier_vars;    // quantifier vars currently in scope
 protected:
@@ -85,8 +84,8 @@ protected:
    ////////////////////////////////////////////////////////////////////////////
    // Is x free in e?
    ////////////////////////////////////////////////////////////////////////////
-   Bool is_std::free(Id x, Exp e) const;
-   Bool is_std::free(Ids xs, Exp e) const;
+   Bool is_free(Id x, Exp e) const;
+   Bool is_free(Ids xs, Exp e) const;
 
    ////////////////////////////////////////////////////////////////////////////
    // Methods to generate new names
@@ -141,8 +140,8 @@ public:
    ////////////////////////////////////////////////////////////////////////////
    void message(const char * mesg, Exp e);
    void error(const char * mesg, Exp e);
-   void set_log  (ostream&);
-   void set_error(ostream&);
+   void set_log  (std::ostream&);
+   void set_error(std::ostream&);
 protected:
 
    ////////////////////////////////////////////////////////////////////////////

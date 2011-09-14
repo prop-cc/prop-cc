@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "querygraph.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\querygraph.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "querygraph.pcc"
+#line 1 "../../../app/willard/querygraph.pcc"
 #include <AD/pretty/postream.h>
 #include "querygraph.h"
 
@@ -57,8 +56,8 @@ Bool QueryGraphConstruction::preceeds(Id x, Id y) const
 //  Transformation rules
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 48 "querygraph.pcc"
-#line 80 "querygraph.pcc"
+#line 48 "../../../app/willard/querygraph.pcc"
+#line 80 "../../../app/willard/querygraph.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -67,7 +66,7 @@ Bool QueryGraphConstruction::preceeds(Id x, Id y) const
 #ifndef DEBUG_QueryGraphConstruction
 #define DEBUG_QueryGraphConstruction(repl,redex,file,line,rule) repl
 #else
-static const char * QueryGraphConstruction_file_name = "querygraph.pcc";
+static const char * QueryGraphConstruction_file_name = "..\..\..\app\willard\querygraph.pcc";
 #endif
 
 inline void  QueryGraphConstruction::labeler(char const * redex,int& s__,int)
@@ -93,7 +92,7 @@ replacement__:
         if (_less_string(_OP(redex)->_1,"=")) {
           if (_equal_string(_OP(redex)->_1,"#")) {
           L1:; 
-#line 67 "querygraph.pcc"
+#line 67 "../../../app/willard/querygraph.pcc"
         
           // Collect all free variables in this expression.
           IdSet S;
@@ -108,7 +107,7 @@ replacement__:
           	}
           }
           
-#line 80 "querygraph.pcc"
+#line 80 "../../../app/willard/querygraph.pcc"
 }
           else if (_equal_string(_OP(redex)->_1,"/=")) { goto L1; }
           else if (_equal_string(_OP(redex)->_1,"<")) { goto L1; }
@@ -120,19 +119,19 @@ replacement__:
         }
         } break;
       case a_Exp::tag_FORALL: {
-#line 55 "querygraph.pcc"
+#line 55 "../../../app/willard/querygraph.pcc"
        push_quantifier(_FORALL(redex)->_1); 
-#line 55 "querygraph.pcc"
+#line 55 "../../../app/willard/querygraph.pcc"
         } break;
       case a_Exp::tag_EXISTS: {
-#line 56 "querygraph.pcc"
+#line 56 "../../../app/willard/querygraph.pcc"
        push_quantifier(_EXISTS(redex)->_1); 
-#line 56 "querygraph.pcc"
+#line 56 "../../../app/willard/querygraph.pcc"
         } break;
       case a_Exp::tag_GENERATOR: {
-#line 57 "querygraph.pcc"
+#line 57 "../../../app/willard/querygraph.pcc"
        push_quantifier(_GENERATOR(redex)->_1); 
-#line 57 "querygraph.pcc"
+#line 57 "../../../app/willard/querygraph.pcc"
         } break;
       default: {} break;
     }
@@ -204,19 +203,19 @@ replacement__:
   {
     switch (redex->tag__) {
       case a_Exp::tag_FORALL: {
-#line 60 "querygraph.pcc"
+#line 60 "../../../app/willard/querygraph.pcc"
        pop_quantifier(_FORALL(redex)->_1); 
-#line 60 "querygraph.pcc"
+#line 60 "../../../app/willard/querygraph.pcc"
         } break;
       case a_Exp::tag_EXISTS: {
-#line 61 "querygraph.pcc"
+#line 61 "../../../app/willard/querygraph.pcc"
        pop_quantifier(_EXISTS(redex)->_1); 
-#line 61 "querygraph.pcc"
+#line 61 "../../../app/willard/querygraph.pcc"
         } break;
       case a_Exp::tag_GENERATOR: {
-#line 62 "querygraph.pcc"
+#line 62 "../../../app/willard/querygraph.pcc"
        pop_quantifier(_GENERATOR(redex)->_1); 
-#line 62 "querygraph.pcc"
+#line 62 "../../../app/willard/querygraph.pcc"
         } break;
       default: {} break;
     }
@@ -258,10 +257,10 @@ replacement__:
   
 }
 
-#line 81 "querygraph.pcc"
-#line 81 "querygraph.pcc"
+#line 81 "../../../app/willard/querygraph.pcc"
+#line 81 "../../../app/willard/querygraph.pcc"
 
-#line 82 "querygraph.pcc"
+#line 82 "../../../app/willard/querygraph.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

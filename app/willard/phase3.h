@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "phase3.ph".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\phase3.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "phase3.ph"
+#line 1 "../../../app/willard/phase3.ph"
 #ifndef phase3_h
 #define phase3_h
 
@@ -20,8 +19,8 @@
 //   This class implements the disjunction removal phase 
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 11 "phase3.ph"
-#line 18 "phase3.ph"
+#line 11 "../../../app/willard/phase3.ph"
+#line 18 "../../../app/willard/phase3.ph"
 class Phase3 : public BURS, virtual public PaigeGoyal {
 private:
   Phase3(const Phase3&);               // no copy constructor
@@ -38,21 +37,21 @@ public:
          void  labeler(Literal & redex, int&, int);
   inline virtual void  operator () (Literal & redex) { int s; labeler(redex,s,0); }
 private:
-#line 12 "phase3.ph"
+#line 12 "../../../app/willard/phase3.ph"
 
   public:
               Phase3();
      virtual ~Phase3();
   
      virtual Exp phase3(Exp);
-#line 18 "phase3.ph"
+#line 18 "../../../app/willard/phase3.ph"
 };
-#line 18 "phase3.ph"
-#line 18 "phase3.ph"
+#line 18 "../../../app/willard/phase3.ph"
+#line 18 "../../../app/willard/phase3.ph"
 
 
 #endif
-#line 21 "phase3.ph"
+#line 21 "../../../app/willard/phase3.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

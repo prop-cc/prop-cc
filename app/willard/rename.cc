@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "rename.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\rename.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "rename.pcc"
+#line 1 "../../../app/willard/rename.pcc"
 #include <AD/pretty/postream.h>
 #include "rename.h"
 
@@ -31,38 +30,38 @@ void RemoveDuplicateNames::new_binding(Id& x)
 {  if (env.contains(x))
    {  Id y = gensym(x);
       env.insert(x,
-#line 21 "rename.pcc"
-#line 21 "rename.pcc"
+#line 21 "../../../app/willard/rename.pcc"
+#line 21 "../../../app/willard/rename.pcc"
 list_1_(y,env[x])
-#line 21 "rename.pcc"
-#line 21 "rename.pcc"
+#line 21 "../../../app/willard/rename.pcc"
+#line 21 "../../../app/willard/rename.pcc"
 ); 
    } else
    {  env.insert(x,
-#line 23 "rename.pcc"
-#line 23 "rename.pcc"
+#line 23 "../../../app/willard/rename.pcc"
+#line 23 "../../../app/willard/rename.pcc"
 list_1_(x)
-#line 23 "rename.pcc"
-#line 23 "rename.pcc"
+#line 23 "../../../app/willard/rename.pcc"
+#line 23 "../../../app/willard/rename.pcc"
 ); }
 }
 
 void RemoveDuplicateNames::new_binding(Ids ids)
 {  
-#line 27 "rename.pcc"
-#line 28 "rename.pcc"
+#line 27 "../../../app/willard/rename.pcc"
+#line 28 "../../../app/willard/rename.pcc"
 {
   for (;;) {
     if (ids) {
-#line 28 "rename.pcc"
+#line 28 "../../../app/willard/rename.pcc"
      new_binding(ids->_1); ids = ids->_2; 
-#line 28 "rename.pcc"
+#line 28 "../../../app/willard/rename.pcc"
     } else { goto L1; }
   }
   L1:;
 }
-#line 29 "rename.pcc"
-#line 29 "rename.pcc"
+#line 29 "../../../app/willard/rename.pcc"
+#line 29 "../../../app/willard/rename.pcc"
 
 }
 
@@ -74,42 +73,42 @@ void RemoveDuplicateNames::new_binding(Ids ids)
 void RemoveDuplicateNames::old_binding(Id& x) 
 {  Ids names = env[x];
    
-#line 39 "rename.pcc"
-#line 43 "rename.pcc"
+#line 39 "../../../app/willard/rename.pcc"
+#line 43 "../../../app/willard/rename.pcc"
 {
   if (names) {
     if (names->_2) {
-#line 41 "rename.pcc"
+#line 41 "../../../app/willard/rename.pcc"
      env.insert(x,names->_2); x = names->_1; 
-#line 41 "rename.pcc"
+#line 41 "../../../app/willard/rename.pcc"
     } else {
-#line 40 "rename.pcc"
+#line 40 "../../../app/willard/rename.pcc"
      env.remove(x); x = names->_1; 
-#line 40 "rename.pcc"
+#line 40 "../../../app/willard/rename.pcc"
     }
   } else {}
 }
-#line 43 "rename.pcc"
-#line 43 "rename.pcc"
+#line 43 "../../../app/willard/rename.pcc"
+#line 43 "../../../app/willard/rename.pcc"
 
 }
 
 void RemoveDuplicateNames::old_binding(Ids ids)
 {  
-#line 47 "rename.pcc"
-#line 48 "rename.pcc"
+#line 47 "../../../app/willard/rename.pcc"
+#line 48 "../../../app/willard/rename.pcc"
 {
   for (;;) {
     if (ids) {
-#line 48 "rename.pcc"
+#line 48 "../../../app/willard/rename.pcc"
      old_binding(ids->_1); ids = ids->_2; 
-#line 48 "rename.pcc"
+#line 48 "../../../app/willard/rename.pcc"
     } else { goto L2; }
   }
   L2:;
 }
-#line 49 "rename.pcc"
-#line 49 "rename.pcc"
+#line 49 "../../../app/willard/rename.pcc"
+#line 49 "../../../app/willard/rename.pcc"
 
 }
 
@@ -122,17 +121,17 @@ void RemoveDuplicateNames::rename(Id& x)
 {  if (env.contains(x))
    {  Ids names = env[x];
       
-#line 60 "rename.pcc"
-#line 63 "rename.pcc"
+#line 60 "../../../app/willard/rename.pcc"
+#line 63 "../../../app/willard/rename.pcc"
 {
   if (names) {
-#line 61 "rename.pcc"
+#line 61 "../../../app/willard/rename.pcc"
    x = names->_1; 
-#line 61 "rename.pcc"
+#line 61 "../../../app/willard/rename.pcc"
   } else {}
 }
-#line 63 "rename.pcc"
-#line 63 "rename.pcc"
+#line 63 "../../../app/willard/rename.pcc"
+#line 63 "../../../app/willard/rename.pcc"
 
    }
 }
@@ -150,8 +149,8 @@ Exp RemoveDuplicateNames::remove_duplicate_names(Exp e)
 //  Transformation rules
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 80 "rename.pcc"
-#line 100 "rename.pcc"
+#line 80 "../../../app/willard/rename.pcc"
+#line 100 "../../../app/willard/rename.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -160,7 +159,7 @@ Exp RemoveDuplicateNames::remove_duplicate_names(Exp e)
 #ifndef DEBUG_RemoveDuplicateNames
 #define DEBUG_RemoveDuplicateNames(repl,redex,file,line,rule) repl
 #else
-static const char * RemoveDuplicateNames_file_name = "rename.pcc";
+static const char * RemoveDuplicateNames_file_name = "..\..\..\app\willard\rename.pcc";
 #endif
 
 inline void  RemoveDuplicateNames::labeler(char const * redex,int& s__,int)
@@ -183,29 +182,29 @@ replacement__:
   {
     switch (redex->tag__) {
       case a_Exp::tag_ID: {
-#line 94 "rename.pcc"
+#line 94 "../../../app/willard/rename.pcc"
        rename(_ID(redex)->ID); 
-#line 94 "rename.pcc"
+#line 94 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_FORALL: {
-#line 89 "rename.pcc"
+#line 89 "../../../app/willard/rename.pcc"
        new_binding(_FORALL(redex)->_1); 
-#line 89 "rename.pcc"
+#line 89 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_EXISTS: {
-#line 88 "rename.pcc"
+#line 88 "../../../app/willard/rename.pcc"
        new_binding(_EXISTS(redex)->_1); 
-#line 88 "rename.pcc"
+#line 88 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_GENERATOR: {
-#line 90 "rename.pcc"
+#line 90 "../../../app/willard/rename.pcc"
        new_binding(_GENERATOR(redex)->_1); 
-#line 90 "rename.pcc"
+#line 90 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_LET: {
-#line 91 "rename.pcc"
+#line 91 "../../../app/willard/rename.pcc"
        new_binding(_LET(redex)->_1); 
-#line 91 "rename.pcc"
+#line 91 "../../../app/willard/rename.pcc"
         } break;
       default: {} break;
     }
@@ -277,24 +276,24 @@ replacement__:
   {
     switch (redex->tag__) {
       case a_Exp::tag_FORALL: {
-#line 98 "rename.pcc"
+#line 98 "../../../app/willard/rename.pcc"
        old_binding(_FORALL(redex)->_1);  define_range(_FORALL(redex)->_1,_FORALL(redex)->_2); 
-#line 98 "rename.pcc"
+#line 98 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_EXISTS: {
-#line 97 "rename.pcc"
+#line 97 "../../../app/willard/rename.pcc"
        old_binding(_EXISTS(redex)->_1);  define_range(_EXISTS(redex)->_1,_EXISTS(redex)->_2); 
-#line 97 "rename.pcc"
+#line 97 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_GENERATOR: {
-#line 99 "rename.pcc"
+#line 99 "../../../app/willard/rename.pcc"
        old_binding(_GENERATOR(redex)->_1); define_range(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2); 
-#line 99 "rename.pcc"
+#line 99 "../../../app/willard/rename.pcc"
         } break;
       case a_Exp::tag_LET: {
-#line 100 "rename.pcc"
+#line 100 "../../../app/willard/rename.pcc"
        old_binding(_LET(redex)->_1); 
-#line 100 "rename.pcc"
+#line 100 "../../../app/willard/rename.pcc"
         } break;
       default: {} break;
     }
@@ -336,10 +335,10 @@ replacement__:
   
 }
 
-#line 101 "rename.pcc"
-#line 101 "rename.pcc"
+#line 101 "../../../app/willard/rename.pcc"
+#line 101 "../../../app/willard/rename.pcc"
 
-#line 102 "rename.pcc"
+#line 102 "../../../app/willard/rename.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

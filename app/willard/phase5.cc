@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "phase5.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\phase5.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "phase5.pcc"
+#line 1 "../../../app/willard/phase5.pcc"
 #include <AD/pretty/postream.h>
 #include "phase5.h"
 
@@ -36,8 +35,8 @@ Exp Phase5::phase5(Exp e)
 //  Transformation to decompose conjunctions
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 27 "phase5.pcc"
-#line 30 "phase5.pcc"
+#line 27 "../../../app/willard/phase5.pcc"
+#line 30 "../../../app/willard/phase5.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -46,7 +45,7 @@ Exp Phase5::phase5(Exp e)
 #ifndef DEBUG_Phase5
 #define DEBUG_Phase5(repl,redex,file,line,rule) repl
 #else
-static const char * Phase5_file_name = "phase5.pcc";
+static const char * Phase5_file_name = "..\..\..\app\willard\phase5.pcc";
 #endif
 
 inline void  Phase5::labeler(char const * redex,int& s__,int)
@@ -132,9 +131,9 @@ replacement__:
   }
   switch (s__) {
     case 1: {
-#line 30 "phase5.pcc"
+#line 30 "../../../app/willard/phase5.pcc"
      
-#line 30 "phase5.pcc"
+#line 30 "../../../app/willard/phase5.pcc"
 } break;
   }
   
@@ -174,11 +173,11 @@ replacement__:
   
 }
 
-#line 31 "phase5.pcc"
-#line 31 "phase5.pcc"
+#line 31 "../../../app/willard/phase5.pcc"
+#line 31 "../../../app/willard/phase5.pcc"
 
 
-#line 33 "phase5.pcc"
+#line 33 "../../../app/willard/phase5.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

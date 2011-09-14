@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
-//  last updated on Jul 1, 2011.
-//  The original source file is "phase3.pcc".
+//  This file is generated automatically using Prop (version 2.4.1).
+//  The original source file is "..\..\..\app\willard\phase3.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REWRITING_USED
@@ -9,7 +8,7 @@
 #define PROP_QUARK_USED
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "phase3.pcc"
+#line 1 "../../../app/willard/phase3.pcc"
 #include <AD/pretty/postream.h>
 #include "phase3.h"
 #include "list.h"
@@ -35,8 +34,8 @@ Exp Phase3::phase3(Exp e)
 //  Transformations to change disjunctions into unions
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 26 "phase3.pcc"
-#line 58 "phase3.pcc"
+#line 26 "../../../app/willard/phase3.pcc"
+#line 58 "../../../app/willard/phase3.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This macro can be redefined by the user for debugging
@@ -45,7 +44,7 @@ Exp Phase3::phase3(Exp e)
 #ifndef DEBUG_Phase3
 #define DEBUG_Phase3(repl,redex,file,line,rule) repl
 #else
-static const char * Phase3_file_name = "phase3.pcc";
+static const char * Phase3_file_name = "..\..\..\app\willard\phase3.pcc";
 #endif
 
 static const TreeTables::ShortState Phase3_theta_0[2][2] = {
@@ -135,10 +134,10 @@ replacement__:
       case a_Exp::tag_GENERATOR: {
         switch (_GENERATOR(redex)->_3->tag__) {
           case a_Exp::tag_GENERATOR: {
-#line 31 "phase3.pcc"
+#line 31 "../../../app/willard/phase3.pcc"
             { redex = DEBUG_Phase3(GENERATOR(append(_GENERATOR(redex)->_1,_GENERATOR(_GENERATOR(redex)->_3)->_1),append(_GENERATOR(redex)->_2,_GENERATOR(_GENERATOR(redex)->_3)->_2),_GENERATOR(_GENERATOR(redex)->_3)->_3),redex,Phase3_file_name,31,"GENERATOR (x, A, GENERATOR (y, B, C)): ...");
               r__ = 1; goto replacement__; }
-#line 33 "phase3.pcc"
+#line 33 "../../../app/willard/phase3.pcc"
             } break;
           default: {} break;
         }
@@ -215,90 +214,90 @@ replacement__:
   }
   switch (s__) {
     case 5: {
-#line 57 "phase3.pcc"
+#line 57 "../../../app/willard/phase3.pcc"
       { redex = DEBUG_Phase3(LET(_LET(_LET(redex)->_2)->_1,_LET(_LET(redex)->_2)->_2,LET(_LET(redex)->_1,_LET(_LET(redex)->_2)->_3,_LET(redex)->_3)),redex,Phase3_file_name,57,"LET (x, LET (y, b, a), e): ...");
         r__ = 1; goto replacement__; }
-#line 58 "phase3.pcc"
+#line 58 "../../../app/willard/phase3.pcc"
 } break;
     case 8: {
-#line 40 "phase3.pcc"
+#line 40 "../../../app/willard/phase3.pcc"
     Ids  xs   = 
-#line 40 "phase3.pcc"
-#line 40 "phase3.pcc"
+#line 40 "../../../app/willard/phase3.pcc"
+#line 40 "../../../app/willard/phase3.pcc"
       nil_1_
-#line 40 "phase3.pcc"
-#line 40 "phase3.pcc"
+#line 40 "../../../app/willard/phase3.pcc"
+#line 40 "../../../app/willard/phase3.pcc"
       ;
       Exps Qs   = 
-#line 41 "phase3.pcc"
-#line 41 "phase3.pcc"
+#line 41 "../../../app/willard/phase3.pcc"
+#line 41 "../../../app/willard/phase3.pcc"
       nil_1_
-#line 41 "phase3.pcc"
-#line 41 "phase3.pcc"
+#line 41 "../../../app/willard/phase3.pcc"
+#line 41 "../../../app/willard/phase3.pcc"
       ;
       Exps exps = 
-#line 42 "phase3.pcc"
-#line 42 "phase3.pcc"
+#line 42 "../../../app/willard/phase3.pcc"
+#line 42 "../../../app/willard/phase3.pcc"
       nil_1_
-#line 42 "phase3.pcc"
-#line 42 "phase3.pcc"
+#line 42 "../../../app/willard/phase3.pcc"
+#line 42 "../../../app/willard/phase3.pcc"
       ;
       Exps disjuncts = _OP(_GUARD(_GENERATOR(redex)->_3)->_1)->_2;
       
-#line 44 "phase3.pcc"
-#line 51 "phase3.pcc"
+#line 44 "../../../app/willard/phase3.pcc"
+#line 51 "../../../app/willard/phase3.pcc"
       {
         for (;;) {
           if (disjuncts) {
-#line 46 "phase3.pcc"
+#line 46 "../../../app/willard/phase3.pcc"
           Id Q = gensym();
             	    xs   = 
-#line 47 "phase3.pcc"
-#line 47 "phase3.pcc"
+#line 47 "../../../app/willard/phase3.pcc"
+#line 47 "../../../app/willard/phase3.pcc"
             list_1_(Q,xs)
-#line 47 "phase3.pcc"
-#line 47 "phase3.pcc"
+#line 47 "../../../app/willard/phase3.pcc"
+#line 47 "../../../app/willard/phase3.pcc"
             ;
             	    Qs   = 
-#line 48 "phase3.pcc"
-#line 48 "phase3.pcc"
+#line 48 "../../../app/willard/phase3.pcc"
+#line 48 "../../../app/willard/phase3.pcc"
             list_1_(GENERATOR(_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,GUARD(disjuncts->_1,_GUARD(_GENERATOR(redex)->_3)->_2)),Qs)
-#line 48 "phase3.pcc"
-#line 48 "phase3.pcc"
+#line 48 "../../../app/willard/phase3.pcc"
+#line 48 "../../../app/willard/phase3.pcc"
             ;
             exps = 
-#line 49 "phase3.pcc"
-#line 49 "phase3.pcc"
+#line 49 "../../../app/willard/phase3.pcc"
+#line 49 "../../../app/willard/phase3.pcc"
             list_1_(ID(Q),exps)
-#line 49 "phase3.pcc"
-#line 49 "phase3.pcc"
+#line 49 "../../../app/willard/phase3.pcc"
+#line 49 "../../../app/willard/phase3.pcc"
             ;
             disjuncts = disjuncts->_2;
             
-#line 51 "phase3.pcc"
+#line 51 "../../../app/willard/phase3.pcc"
           } else { goto L1; }
         }
         L1:;
       }
-#line 52 "phase3.pcc"
-#line 52 "phase3.pcc"
+#line 52 "../../../app/willard/phase3.pcc"
+#line 52 "../../../app/willard/phase3.pcc"
       
       
-#line 53 "phase3.pcc"
-#line 53 "phase3.pcc"
+#line 53 "../../../app/willard/phase3.pcc"
+#line 53 "../../../app/willard/phase3.pcc"
       { redex = DEBUG_Phase3(make_let(xs,Qs,OP("union",exps)),redex,Phase3_file_name,39,"GENERATOR (x, A, GUARD (OP (\"or\", es), e)): ...");
         r__ = 1; goto replacement__; }
-#line 53 "phase3.pcc"
-#line 53 "phase3.pcc"
+#line 53 "../../../app/willard/phase3.pcc"
+#line 53 "../../../app/willard/phase3.pcc"
       
       
-#line 54 "phase3.pcc"
+#line 54 "../../../app/willard/phase3.pcc"
 } break;
     case 10: {
-#line 36 "phase3.pcc"
+#line 36 "../../../app/willard/phase3.pcc"
       { redex = DEBUG_Phase3(OP("or",list_1_(_OP(redex)->_2->_1,_OP(_OP(redex)->_2->_2->_1)->_2)),redex,Phase3_file_name,36,"OP (\"or\", #[a, OP (\"or\", b)]): ...");
         r__ = 1; goto replacement__; }
-#line 39 "phase3.pcc"
+#line 39 "../../../app/willard/phase3.pcc"
 } break;
   }
   if (boxed(redex)) {
@@ -341,10 +340,10 @@ replacement__:
   
 }
 
-#line 58 "phase3.pcc"
-#line 58 "phase3.pcc"
+#line 58 "../../../app/willard/phase3.pcc"
+#line 58 "../../../app/willard/phase3.pcc"
 
-#line 59 "phase3.pcc"
+#line 59 "../../../app/willard/phase3.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
