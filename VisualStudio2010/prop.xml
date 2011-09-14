@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="clr-namespace:Microsoft.Build.Framework.XamlTypes;assembly=Microsoft.Build.Framework" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:transformCallback="Microsoft.Cpp.Dev10.ConvertPropertyCallback">
+  <Rule
+    Name="Prop_Compiler"
+    PageTemplate="tool"
+    DisplayName="Prop Compiler"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Prop_Compiler" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Options">
+        <Category.DisplayName>
+          <sys:String>Options</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Optimizations">
+        <Category.DisplayName>
+          <sys:String>Optimizations</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+
+    <BoolProperty
+      Name="AutoMake"
+      DisplayName="Automake"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-automake" />
+
+    <BoolProperty
+      Name="MakeDepends"
+      DisplayName="Make Depends"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-make_depends" />
+
+    <BoolProperty
+      Name="NonLinear"
+      DisplayName="Non Linear"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-non_linear" />
+    
+    <BoolProperty
+      Name="Strict"
+      DisplayName="Strict Checking"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-strict" />
+
+    <BoolProperty
+      Name="Debug"
+      DisplayName="Debug"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-debug" />
+
+    <BoolProperty
+      Name="Trace"
+      DisplayName="Trace"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-trace" />
+
+    <BoolProperty
+      Name="HTML"
+      DisplayName="Generate HTML"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-html" />
+
+    <BoolProperty
+      Name="NoLineDirectives"
+      DisplayName="No #line Directives"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-no_line_directives" />
+
+    <BoolProperty
+      Name="GNUStyleMessage"
+      DisplayName="GNU style message"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-GNU_style_message" />
+    
+    <BoolProperty
+      Name="GenerateReport"
+      DisplayName="Generate Report"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-generate_report" />
+
+    <BoolProperty
+      Name="SaveSpace"
+      DisplayName="Save Space"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-save_space" />
+
+    <BoolProperty
+      Name="PrintMemoryUsage"
+      DisplayName="Print Memory Usage"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-print_memory_usage" />
+
+    <BoolProperty
+      Name="UseGlobalPools"
+      DisplayName="Use Global Pools"
+      Category="Options"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-use_global_pools" />
+
+    <BoolProperty
+      Name="FastStringMatch"
+      DisplayName="fast string match"
+      Category="Optimizations"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-Ofast_string_match" />
+    
+    <BoolProperty
+      Name="AdaptiveMatching"
+      DisplayName="adaptive matching"
+      Category="Optimizations"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-Oadaptive_matching" />
+    
+    <BoolProperty
+      Name="InlineCasts"
+      DisplayName="inline casts"
+      Category="Optimizations"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-Oinline_casts" />
+    
+    <BoolProperty
+      Name="TaggedPointer"
+      DisplayName="tagged pointer"
+      Category="Optimizations"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-Otagged_pointer" />
+    
+    <BoolProperty
+      Name="Rewriting"
+      DisplayName="rewriting"
+      Category="Optimizations"
+      Visible="True"
+      IncludeInCommandLine="True"
+      Switch="-Orewriting" />
+    
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Prop_Compiler"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="IncludePath"
+      HelpContext="0"
+      DisplayName="IncludePath"
+      Description="Include Path"
+      Separator=";" />
+    <StringProperty
+      Name="RootPath"
+      HelpContext="0"
+      DisplayName="RootPath" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Prop_CompilerBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Prop_CompilerBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Prop_CompilerAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Prop_CompilerAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="True"
+      IncludeInCommandLine="True" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="true" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Prop_Compiler"
+    DisplayName="Prop Compiler" />
+  <FileExtension
+    Name="*.pcc;*.ph"
+    ContentType="Prop_Compiler" />
+  <ContentType
+    Name="Prop_Compiler"
+    DisplayName="Prop Compiler"
+    ItemType="Prop_Compiler" />
+</ProjectSchemaDefinitions>

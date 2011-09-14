@@ -60,10 +60,10 @@
 #define PROP_EXPLICIT_IS_DEFINED /**/
 
 /* Define if your system has getrusage(...). */
-#define PROP_HAS_GETRUSAGE /**/
+#undef PROP_HAS_GETRUSAGE /**/
 
 /* Define if your system has times(...). */
-#define PROP_HAS_TIMES /**/
+#undef PROP_HAS_TIMES /**/
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
